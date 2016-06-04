@@ -13,4 +13,5 @@ Pod::Spec.new do |s|
   s.source = { :git => 'https://github.com/DrewKiino/Tide.git', :tag => 'v0.1.0' }
   s.source_files = "Tide/**/*.{swift}"
   s.resources = "Tide/**/*.{png,jpeg,jpg,storyboard,xib}"
+  
 end
