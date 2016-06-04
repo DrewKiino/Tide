@@ -84,10 +84,12 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "$BUILT_PRODUCTS_DIR/AsyncSwift/Async.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Atlantis/Atlantis.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SwiftyTimer/SwiftyTimer.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "$BUILT_PRODUCTS_DIR/AsyncSwift/Async.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Atlantis/Atlantis.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SwiftyTimer/SwiftyTimer.framework"
 fi

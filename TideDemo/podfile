@@ -10,7 +10,8 @@ use_frameworks!
 target 'TideDemo' do
 
 pod 'SwiftyTimer'
-pod 'Atlantis', :git => 'https://github.com/DrewKiino/Atlantis'
+pod 'Atlantis'
+pod 'AsyncSwift'
 
 end
 

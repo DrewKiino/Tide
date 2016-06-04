@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D0349AB674F1F417834F86BBA9E2981F"
-               BuildableName = "Pods_TideDemo.framework"
-               BlueprintName = "Pods-TideDemo"
+               BlueprintIdentifier = "D1DC35DB2C695031A72543555FB23729"
+               BuildableName = "Async.framework"
+               BlueprintName = "AsyncSwift"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D0349AB674F1F417834F86BBA9E2981F"
-            BuildableName = "Pods_TideDemo.framework"
-            BlueprintName = "Pods-TideDemo"
+            BlueprintIdentifier = "D1DC35DB2C695031A72543555FB23729"
+            BuildableName = "Async.framework"
+            BlueprintName = "AsyncSwift"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

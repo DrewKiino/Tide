@@ -7,105 +7,126 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		476ECF5E33E41762DE6684A2979D0B23 /* SwiftyTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B8F72B286A508FECE033348D7FA7BC /* SwiftyTimer.swift */; };
-		59EC5D79B7EC13ED358A4EE4AAE441A0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
-		6CDA30086167443692C2C46DE16F72F8 /* Pods-TideDemo-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CBD046C10D6772A1EF43D206305D80FE /* Pods-TideDemo-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7F01A6710DEC4066188E647E16451412 /* Atlantis-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 883C85CBEBCC85C43973CAC66ACEF948 /* Atlantis-dummy.m */; };
-		82F10A23B9D9DFCF5190E6B005EBAA5E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
-		8BB7FE0FE68464047A382A94694532A1 /* Atlantis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1B63FB7FE682C27AB2A2332A279878 /* Atlantis.swift */; };
-		9C24B9B835890A62AFEED0A972EC6B79 /* SwiftyTimer-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 23B68C771E4D34E037620E06B9CEE379 /* SwiftyTimer-dummy.m */; };
-		A9C7E96041C35FA9F66166F7EC184BCC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
-		B7A85F9EE96E2B868C31897BAFA68883 /* SwiftyTimer-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E7C20DA0D1C762B8323897C406EC97F4 /* SwiftyTimer-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F303D9BA1A4B960FA27EE9D1965AA017 /* Pods-TideDemo-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AE6AAAE7272797CFEBBE88BA93BA7E54 /* Pods-TideDemo-dummy.m */; };
-		FEBB103FF3299F18AB646546B76DA9BB /* Atlantis-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CF44C5407FC29E42FA7505353C50BDE1 /* Atlantis-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		126169B8BF7430D89BB990B97C36D75F /* Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE5CC8637267FDF3B73C011196B6802 /* Async.swift */; };
+		14CCD90B1E3F1B97EB5DB21C95078A68 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */; };
+		217E102EFC500CD37C338A0DB36B8D1C /* Pods-TideDemo-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AE6AAAE7272797CFEBBE88BA93BA7E54 /* Pods-TideDemo-dummy.m */; };
+		23D5C0A1D9DB23BDF4CA3A74CA92422E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E86668F20F252C440D1015B816BE59C5 /* UIKit.framework */; };
+		2754C4E95E265639D7CFC90BA8264476 /* AsyncSwift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F0966F28273DEE5DCA7073A88F93D03 /* AsyncSwift-dummy.m */; };
+		2DC7CD814ED103574346CC8283FDC6CD /* Pods-TideDemo-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CBD046C10D6772A1EF43D206305D80FE /* Pods-TideDemo-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2F903EAED6109D3BF3F180DDFD24D62A /* AsyncSwift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 224B84B67EDDE06F14EA29DC559EA752 /* AsyncSwift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		33861DE5DCDC55E80862313605E735EA /* SwiftyTimer-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E086ABDE419C16901E4E29E52D11756C /* SwiftyTimer-dummy.m */; };
+		37E433452F9AEE4A0B51CCDA404B53EC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */; };
+		3AEED5C3DB116E8F791046B9ED21ADFD /* Atlantis.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB5BDB3A7A0E22D21E12D6FF521F5A6 /* Atlantis.swift */; };
+		3F1C5AC23CCA2CA909D6945BF70B0401 /* Atlantis-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = AE572D8C64094BC3DB015E53F780EFFB /* Atlantis-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F4F4DD8E7E0B1483197F79F7935A0EB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */; };
+		74515C5828BAE23C4FACD94CA68CDDE8 /* SwiftyTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60B5945B2702257FEAC3C67337AC3EA /* SwiftyTimer.swift */; };
+		7C31EEC17AA5388FCAD95B7A64012F1B /* SwiftyTimer-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F7341D74FC28C5414525E6D23D41764F /* SwiftyTimer-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8C99DF9829A231CE3B3716802B0010CB /* Atlantis-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B088702FA6B39CA592B7FBC6A716C82 /* Atlantis-dummy.m */; };
+		FE77ED9E6CA2B4C18625AB36255BCEB4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		7F9E869024D162E37AA349435856092B /* PBXContainerItemProxy */ = {
+		33FD600718FF35E967A096CC1A8B7903 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = C8BDF7B97BC45B4D1D0837481355B7CF;
+			remoteGlobalIDString = D1DC35DB2C695031A72543555FB23729;
+			remoteInfo = AsyncSwift;
+		};
+		9B125E4A8BD100354045E00E42431EE2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AC23AEB9637A76284D8C334D27E9A141;
 			remoteInfo = SwiftyTimer;
 		};
-		E1F99B36C87415D293E6F369F6410DB0 /* PBXContainerItemProxy */ = {
+		DDA04FB5777C25912CDD8D065B28A1C5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 324CE6186FDBEA46DD959B8976916466;
+			remoteGlobalIDString = 514AD73B93B8B09AB38937AC19A3F9A2;
 			remoteInfo = Atlantis;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0125BE28D1D79D5218F5961455E574B5 /* Atlantis.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Atlantis.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		04F108C3844CD1DA7605CEDE49B20456 /* Atlantis.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Atlantis.xcconfig; sourceTree = "<group>"; };
-		223E07A6B96FD26A95D76BB2AAF0C511 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		23B68C771E4D34E037620E06B9CEE379 /* SwiftyTimer-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftyTimer-dummy.m"; sourceTree = "<group>"; };
+		080AF2DE7C54E986751E1D38B8B150C0 /* Atlantis.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Atlantis.xcconfig; sourceTree = "<group>"; };
+		0F0966F28273DEE5DCA7073A88F93D03 /* AsyncSwift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "AsyncSwift-dummy.m"; sourceTree = "<group>"; };
+		11866654E5D1D57DD76987C5F43E8D9A /* Async.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Async.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		224B84B67EDDE06F14EA29DC559EA752 /* AsyncSwift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AsyncSwift-umbrella.h"; sourceTree = "<group>"; };
 		24C36028EC243559BAA17792F7347FF2 /* Pods-TideDemo-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TideDemo-frameworks.sh"; sourceTree = "<group>"; };
+		2AF0B8B783A5174DC6EE5BB279743C11 /* SwiftyTimer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyTimer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3177F4687B1796CCD8CCAF360BE5D7F9 /* Pods-TideDemo-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TideDemo-acknowledgements.plist"; sourceTree = "<group>"; };
 		33905FFD9E8DC9D52FFC276F85A7798F /* Pods-TideDemo.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-TideDemo.modulemap"; sourceTree = "<group>"; };
+		3451B0ECE6F991A101E28A2116D66400 /* Atlantis-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Atlantis-prefix.pch"; sourceTree = "<group>"; };
 		3D2DF72E51EA6A3AC499415B6B358D9A /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		531DA2844F9EAEB412D842283E7CE2BE /* SwiftyTimer.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftyTimer.xcconfig; sourceTree = "<group>"; };
-		562F21FB840BFAC36734B90B39896905 /* SwiftyTimer-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyTimer-prefix.pch"; sourceTree = "<group>"; };
-		5A1B63FB7FE682C27AB2A2332A279878 /* Atlantis.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Atlantis.swift; path = XCode/Atlantis/Atlantis/Source/Atlantis.swift; sourceTree = "<group>"; };
+		4B25FE9D67C184174244F5A61DA26F88 /* AsyncSwift.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AsyncSwift.xcconfig; sourceTree = "<group>"; };
 		5A95245005F6AF28086D5F972B8AB91B /* Pods-TideDemo-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TideDemo-acknowledgements.markdown"; sourceTree = "<group>"; };
-		5C3200AFB9C5E68D89749535CDF7E20A /* Atlantis.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Atlantis.modulemap; sourceTree = "<group>"; };
-		76C493CEB2B15E5D76785519870DE57D /* Atlantis-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Atlantis-prefix.pch"; sourceTree = "<group>"; };
-		883C85CBEBCC85C43973CAC66ACEF948 /* Atlantis-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Atlantis-dummy.m"; sourceTree = "<group>"; };
+		6B088702FA6B39CA592B7FBC6A716C82 /* Atlantis-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Atlantis-dummy.m"; sourceTree = "<group>"; };
+		831C7727B81C1E265074F984D3A0F142 /* SwiftyTimer-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyTimer-prefix.pch"; sourceTree = "<group>"; };
+		8C5AEA130D3BC50786962B401579E82C /* SwiftyTimer.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftyTimer.xcconfig; sourceTree = "<group>"; };
+		934ABF8117C5BDF384055E8CDBC94C1D /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9777BA781D9C03B04AE6042CD8807DE8 /* Pods-TideDemo-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TideDemo-resources.sh"; sourceTree = "<group>"; };
-		A4C68EC4AAFE44F1047BA332922B4FB6 /* SwiftyTimer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyTimer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		AA9EC4F50ED81E945116B59540F5B71A /* Pods_TideDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TideDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A962F6CE5987870DE5691986AAE9985 /* Pods_TideDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TideDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D0FA5F9CAED0815FAB3D57C0BC1BD3F /* AsyncSwift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = AsyncSwift.modulemap; sourceTree = "<group>"; };
+		A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		AE572D8C64094BC3DB015E53F780EFFB /* Atlantis-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Atlantis-umbrella.h"; sourceTree = "<group>"; };
 		AE6AAAE7272797CFEBBE88BA93BA7E54 /* Pods-TideDemo-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TideDemo-dummy.m"; sourceTree = "<group>"; };
-		B64B3D2AD7AAE84D3B34B16B17082CDD /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B9B8F72B286A508FECE033348D7FA7BC /* SwiftyTimer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftyTimer.swift; path = Sources/SwiftyTimer.swift; sourceTree = "<group>"; };
-		CA29ED88B944EF63A91B125C9A7B8A49 /* SwiftyTimer.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SwiftyTimer.modulemap; sourceTree = "<group>"; };
+		B19AB1EF23DBC44C0B71674D2DD1FCEC /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C89F704FEFFB8EDF11B0D89299115ADE /* SwiftyTimer.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SwiftyTimer.modulemap; sourceTree = "<group>"; };
+		C8F036B713E67EFED56684F816B04FC5 /* AsyncSwift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AsyncSwift-prefix.pch"; sourceTree = "<group>"; };
 		CBD046C10D6772A1EF43D206305D80FE /* Pods-TideDemo-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TideDemo-umbrella.h"; sourceTree = "<group>"; };
-		CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		CF44C5407FC29E42FA7505353C50BDE1 /* Atlantis-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Atlantis-umbrella.h"; sourceTree = "<group>"; };
-		E7C20DA0D1C762B8323897C406EC97F4 /* SwiftyTimer-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyTimer-umbrella.h"; sourceTree = "<group>"; };
+		CCE5CC8637267FDF3B73C011196B6802 /* Async.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Async.swift; path = Source/Async.swift; sourceTree = "<group>"; };
+		D52E3B8095575BC70082D9A81CCC2A63 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D60B5945B2702257FEAC3C67337AC3EA /* SwiftyTimer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftyTimer.swift; path = Sources/SwiftyTimer.swift; sourceTree = "<group>"; };
+		E086ABDE419C16901E4E29E52D11756C /* SwiftyTimer-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftyTimer-dummy.m"; sourceTree = "<group>"; };
+		E4AA740D0796C5AC63238EA730126E18 /* Atlantis.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Atlantis.modulemap; sourceTree = "<group>"; };
+		E86668F20F252C440D1015B816BE59C5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		EA18590A65737D5675AE9368BCC6834A /* Atlantis.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Atlantis.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDB5BDB3A7A0E22D21E12D6FF521F5A6 /* Atlantis.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Atlantis.swift; path = Atlantis/Source/Atlantis.swift; sourceTree = "<group>"; };
 		EFA51DC6947FEB20427736FABA4FC05A /* Pods-TideDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TideDemo.release.xcconfig"; sourceTree = "<group>"; };
 		F269BDEC115B7C127DD219CFD8BC84A4 /* Pods-TideDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TideDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		F7341D74FC28C5414525E6D23D41764F /* SwiftyTimer-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyTimer-umbrella.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		53AC1197E71EEB20E14616369F7C0642 /* Frameworks */ = {
+		1F1C748FBD565D75072B695A7803AD58 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82F10A23B9D9DFCF5190E6B005EBAA5E /* Foundation.framework in Frameworks */,
+				14CCD90B1E3F1B97EB5DB21C95078A68 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5F7124AB122ED86FA2E8C3234CC21CF1 /* Frameworks */ = {
+		3FF9E982D4F754F21090B416E63FEB1B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9C7E96041C35FA9F66166F7EC184BCC /* Foundation.framework in Frameworks */,
+				FE77ED9E6CA2B4C18625AB36255BCEB4 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F0D5193A80178C309FE36556DFD8DA2C /* Frameworks */ = {
+		EC45B49DAE58A4E80A54C3888DA457F3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				59EC5D79B7EC13ED358A4EE4AAE441A0 /* Foundation.framework in Frameworks */,
+				37E433452F9AEE4A0B51CCDA404B53EC /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F5AC7661E7E746CEC1BA4F427549A9D8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F4F4DD8E7E0B1483197F79F7935A0EB /* Foundation.framework in Frameworks */,
+				23D5C0A1D9DB23BDF4CA3A74CA92422E /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		000886C41DB8DF39EB217B768814A0A7 /* Atlantis */ = {
-			isa = PBXGroup;
-			children = (
-				5A1B63FB7FE682C27AB2A2332A279878 /* Atlantis.swift */,
-				28935945D016C669182AA4FCFD748977 /* Support Files */,
-			);
-			path = Atlantis;
-			sourceTree = "<group>";
-		};
 		1DAEE8FE67EDFAF763F12E68A8845D57 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -114,78 +135,113 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		20C3FAE92D7C22779ADC898458CA8EB4 /* Products */ = {
+		2D2B65F8D000DF9FD853E8FFECE114E9 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				0125BE28D1D79D5218F5961455E574B5 /* Atlantis.framework */,
-				AA9EC4F50ED81E945116B59540F5B71A /* Pods_TideDemo.framework */,
-				A4C68EC4AAFE44F1047BA332922B4FB6 /* SwiftyTimer.framework */,
+				934ABF8117C5BDF384055E8CDBC94C1D /* Info.plist */,
+				C89F704FEFFB8EDF11B0D89299115ADE /* SwiftyTimer.modulemap */,
+				8C5AEA130D3BC50786962B401579E82C /* SwiftyTimer.xcconfig */,
+				E086ABDE419C16901E4E29E52D11756C /* SwiftyTimer-dummy.m */,
+				831C7727B81C1E265074F984D3A0F142 /* SwiftyTimer-prefix.pch */,
+				F7341D74FC28C5414525E6D23D41764F /* SwiftyTimer-umbrella.h */,
 			);
-			name = Products;
+			name = "Support Files";
+			path = "../Target Support Files/SwiftyTimer";
 			sourceTree = "<group>";
 		};
-		28935945D016C669182AA4FCFD748977 /* Support Files */ = {
+		433CD3331B6C3787F473C941B61FC68F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5C3200AFB9C5E68D89749535CDF7E20A /* Atlantis.modulemap */,
-				04F108C3844CD1DA7605CEDE49B20456 /* Atlantis.xcconfig */,
-				883C85CBEBCC85C43973CAC66ACEF948 /* Atlantis-dummy.m */,
-				76C493CEB2B15E5D76785519870DE57D /* Atlantis-prefix.pch */,
-				CF44C5407FC29E42FA7505353C50BDE1 /* Atlantis-umbrella.h */,
-				B64B3D2AD7AAE84D3B34B16B17082CDD /* Info.plist */,
+				F302CD3B306AF1ED96B9AF31FCDBC26C /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		54B94E58D04A06549BF0E04E895A8C72 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9F94ABB8343377AFB420C0AD8AE402D3 /* AsyncSwift */,
+				CE69604D5FE1858B34390A0916E22624 /* Atlantis */,
+				F97BF294E04B62C079934E3B9E45554F /* SwiftyTimer */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		5BA61F71E349DF9A674F028BBC324607 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				E4AA740D0796C5AC63238EA730126E18 /* Atlantis.modulemap */,
+				080AF2DE7C54E986751E1D38B8B150C0 /* Atlantis.xcconfig */,
+				6B088702FA6B39CA592B7FBC6A716C82 /* Atlantis-dummy.m */,
+				3451B0ECE6F991A101E28A2116D66400 /* Atlantis-prefix.pch */,
+				AE572D8C64094BC3DB015E53F780EFFB /* Atlantis-umbrella.h */,
+				B19AB1EF23DBC44C0B71674D2DD1FCEC /* Info.plist */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/Atlantis";
-			sourceTree = "<group>";
-		};
-		3DCAB2B7CDE207B3958B6CB957FCC758 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
-		593A0E1F65491CA5BD25677B148B64DF /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				000886C41DB8DF39EB217B768814A0A7 /* Atlantis */,
-				FBF3B31FA4502AEEB3201B623D235E66 /* SwiftyTimer */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
-				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				593A0E1F65491CA5BD25677B148B64DF /* Pods */,
-				20C3FAE92D7C22779ADC898458CA8EB4 /* Products */,
+				433CD3331B6C3787F473C941B61FC68F /* Frameworks */,
+				54B94E58D04A06549BF0E04E895A8C72 /* Pods */,
+				8B506E1EF07A71E68DE22C94B3B83245 /* Products */,
 				1DAEE8FE67EDFAF763F12E68A8845D57 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+		8B506E1EF07A71E68DE22C94B3B83245 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3DCAB2B7CDE207B3958B6CB957FCC758 /* iOS */,
+				11866654E5D1D57DD76987C5F43E8D9A /* Async.framework */,
+				EA18590A65737D5675AE9368BCC6834A /* Atlantis.framework */,
+				9A962F6CE5987870DE5691986AAE9985 /* Pods_TideDemo.framework */,
+				2AF0B8B783A5174DC6EE5BB279743C11 /* SwiftyTimer.framework */,
 			);
-			name = Frameworks;
+			name = Products;
 			sourceTree = "<group>";
 		};
-		C9EF2C7751CD0534176C0EDAA16E86E2 /* Support Files */ = {
+		9F94ABB8343377AFB420C0AD8AE402D3 /* AsyncSwift */ = {
 			isa = PBXGroup;
 			children = (
-				223E07A6B96FD26A95D76BB2AAF0C511 /* Info.plist */,
-				CA29ED88B944EF63A91B125C9A7B8A49 /* SwiftyTimer.modulemap */,
-				531DA2844F9EAEB412D842283E7CE2BE /* SwiftyTimer.xcconfig */,
-				23B68C771E4D34E037620E06B9CEE379 /* SwiftyTimer-dummy.m */,
-				562F21FB840BFAC36734B90B39896905 /* SwiftyTimer-prefix.pch */,
-				E7C20DA0D1C762B8323897C406EC97F4 /* SwiftyTimer-umbrella.h */,
+				CCE5CC8637267FDF3B73C011196B6802 /* Async.swift */,
+				D44CEE08FC32D69287339C7FAA218479 /* Support Files */,
+			);
+			path = AsyncSwift;
+			sourceTree = "<group>";
+		};
+		CE69604D5FE1858B34390A0916E22624 /* Atlantis */ = {
+			isa = PBXGroup;
+			children = (
+				EDB5BDB3A7A0E22D21E12D6FF521F5A6 /* Atlantis.swift */,
+				5BA61F71E349DF9A674F028BBC324607 /* Support Files */,
+			);
+			path = Atlantis;
+			sourceTree = "<group>";
+		};
+		D44CEE08FC32D69287339C7FAA218479 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				9D0FA5F9CAED0815FAB3D57C0BC1BD3F /* AsyncSwift.modulemap */,
+				4B25FE9D67C184174244F5A61DA26F88 /* AsyncSwift.xcconfig */,
+				0F0966F28273DEE5DCA7073A88F93D03 /* AsyncSwift-dummy.m */,
+				C8F036B713E67EFED56684F816B04FC5 /* AsyncSwift-prefix.pch */,
+				224B84B67EDDE06F14EA29DC559EA752 /* AsyncSwift-umbrella.h */,
+				D52E3B8095575BC70082D9A81CCC2A63 /* Info.plist */,
 			);
 			name = "Support Files";
-			path = "../Target Support Files/SwiftyTimer";
+			path = "../Target Support Files/AsyncSwift";
+			sourceTree = "<group>";
+		};
+		F302CD3B306AF1ED96B9AF31FCDBC26C /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */,
+				E86668F20F252C440D1015B816BE59C5 /* UIKit.framework */,
+			);
+			name = iOS;
 			sourceTree = "<group>";
 		};
 		F415374C1F29D24B015F17CE24ED2D0E /* Pods-TideDemo */ = {
@@ -206,11 +262,11 @@
 			path = "Target Support Files/Pods-TideDemo";
 			sourceTree = "<group>";
 		};
-		FBF3B31FA4502AEEB3201B623D235E66 /* SwiftyTimer */ = {
+		F97BF294E04B62C079934E3B9E45554F /* SwiftyTimer */ = {
 			isa = PBXGroup;
 			children = (
-				B9B8F72B286A508FECE033348D7FA7BC /* SwiftyTimer.swift */,
-				C9EF2C7751CD0534176C0EDAA16E86E2 /* Support Files */,
+				D60B5945B2702257FEAC3C67337AC3EA /* SwiftyTimer.swift */,
+				2D2B65F8D000DF9FD853E8FFECE114E9 /* Support Files */,
 			);
 			path = SwiftyTimer;
 			sourceTree = "<group>";
@@ -218,40 +274,48 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		1BCB3FE9C803F1632C283A2730008BB3 /* Headers */ = {
+		284E4BCD3F7A9AEA6ECDE1EB64D90DE2 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FEBB103FF3299F18AB646546B76DA9BB /* Atlantis-umbrella.h in Headers */,
+				7C31EEC17AA5388FCAD95B7A64012F1B /* SwiftyTimer-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		78746206BDBF4FC570BF9FFA58E62C8D /* Headers */ = {
+		3A91A1781435D2F6E292FCCF5F5356C1 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6CDA30086167443692C2C46DE16F72F8 /* Pods-TideDemo-umbrella.h in Headers */,
+				2F903EAED6109D3BF3F180DDFD24D62A /* AsyncSwift-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		894E3D852EECB36990F8171F0ADEC804 /* Headers */ = {
+		CB53C851C53142193A47F09E2DA42C07 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B7A85F9EE96E2B868C31897BAFA68883 /* SwiftyTimer-umbrella.h in Headers */,
+				2DC7CD814ED103574346CC8283FDC6CD /* Pods-TideDemo-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E8D21D1214CBA9DA79A70D85CD32E373 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F1C5AC23CCA2CA909D6945BF70B0401 /* Atlantis-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		324CE6186FDBEA46DD959B8976916466 /* Atlantis */ = {
+		514AD73B93B8B09AB38937AC19A3F9A2 /* Atlantis */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CCF0865D6CBA1569B1589774D438DC5A /* Build configuration list for PBXNativeTarget "Atlantis" */;
+			buildConfigurationList = 4FCF5CCF921D9BA4C1CB0DB83F8ADB8F /* Build configuration list for PBXNativeTarget "Atlantis" */;
 			buildPhases = (
-				0B15CCE8BD5E6A49142AD691BB4FDDDE /* Sources */,
-				53AC1197E71EEB20E14616369F7C0642 /* Frameworks */,
-				1BCB3FE9C803F1632C283A2730008BB3 /* Headers */,
+				DEACC3D2313E4228D534C2DB1546C300 /* Sources */,
+				F5AC7661E7E746CEC1BA4F427549A9D8 /* Frameworks */,
+				E8D21D1214CBA9DA79A70D85CD32E373 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -259,35 +323,16 @@
 			);
 			name = Atlantis;
 			productName = Atlantis;
-			productReference = 0125BE28D1D79D5218F5961455E574B5 /* Atlantis.framework */;
+			productReference = EA18590A65737D5675AE9368BCC6834A /* Atlantis.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		80C1DE67B36CF6D6EFDFCF6DAE8C4C58 /* Pods-TideDemo */ = {
+		AC23AEB9637A76284D8C334D27E9A141 /* SwiftyTimer */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1111C4777FD714F72946205AD8826AF2 /* Build configuration list for PBXNativeTarget "Pods-TideDemo" */;
+			buildConfigurationList = A62D8580977BF2596F89D49557792BF6 /* Build configuration list for PBXNativeTarget "SwiftyTimer" */;
 			buildPhases = (
-				56BFF911D077796F02A9F8F776A972CA /* Sources */,
-				5F7124AB122ED86FA2E8C3234CC21CF1 /* Frameworks */,
-				78746206BDBF4FC570BF9FFA58E62C8D /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				8C1F89B0D7880CD1CEDD2B57838144D5 /* PBXTargetDependency */,
-				BC790F510C1DADB50ED3A467423CB8BF /* PBXTargetDependency */,
-			);
-			name = "Pods-TideDemo";
-			productName = "Pods-TideDemo";
-			productReference = AA9EC4F50ED81E945116B59540F5B71A /* Pods_TideDemo.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		C8BDF7B97BC45B4D1D0837481355B7CF /* SwiftyTimer */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 6C728247A2E22A64F471F0F3E7D6CF1F /* Build configuration list for PBXNativeTarget "SwiftyTimer" */;
-			buildPhases = (
-				B9ED69505DC1B8ED9A76A37D5DD0A185 /* Sources */,
-				F0D5193A80178C309FE36556DFD8DA2C /* Frameworks */,
-				894E3D852EECB36990F8171F0ADEC804 /* Headers */,
+				1F576B4EDF70DC86955BA161C7BA62C3 /* Sources */,
+				1F1C748FBD565D75072B695A7803AD58 /* Frameworks */,
+				284E4BCD3F7A9AEA6ECDE1EB64D90DE2 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -295,7 +340,44 @@
 			);
 			name = SwiftyTimer;
 			productName = SwiftyTimer;
-			productReference = A4C68EC4AAFE44F1047BA332922B4FB6 /* SwiftyTimer.framework */;
+			productReference = 2AF0B8B783A5174DC6EE5BB279743C11 /* SwiftyTimer.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		D0349AB674F1F417834F86BBA9E2981F /* Pods-TideDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 13A2306A84981129D300A61C533B6A3B /* Build configuration list for PBXNativeTarget "Pods-TideDemo" */;
+			buildPhases = (
+				0988D72F0D4B4A78F5FC94ABB6D77D82 /* Sources */,
+				3FF9E982D4F754F21090B416E63FEB1B /* Frameworks */,
+				CB53C851C53142193A47F09E2DA42C07 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				14D5148BA0194FBF7D04DAC0CB186CEA /* PBXTargetDependency */,
+				CA4B663642DAE01198FDF8BC6D2BF04D /* PBXTargetDependency */,
+				76B57EA582B99068552DAF8F93CBDD37 /* PBXTargetDependency */,
+			);
+			name = "Pods-TideDemo";
+			productName = "Pods-TideDemo";
+			productReference = 9A962F6CE5987870DE5691986AAE9985 /* Pods_TideDemo.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		D1DC35DB2C695031A72543555FB23729 /* AsyncSwift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2C22D6720637A1B2B2F95C2B902C0C7D /* Build configuration list for PBXNativeTarget "AsyncSwift" */;
+			buildPhases = (
+				8A50EC43E2E52EC3C02907FFC4A43D50 /* Sources */,
+				EC45B49DAE58A4E80A54C3888DA457F3 /* Frameworks */,
+				3A91A1781435D2F6E292FCCF5F5356C1 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AsyncSwift;
+			productName = AsyncSwift;
+			productReference = 11866654E5D1D57DD76987C5F43E8D9A /* Async.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -315,62 +397,204 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 20C3FAE92D7C22779ADC898458CA8EB4 /* Products */;
+			productRefGroup = 8B506E1EF07A71E68DE22C94B3B83245 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				324CE6186FDBEA46DD959B8976916466 /* Atlantis */,
-				80C1DE67B36CF6D6EFDFCF6DAE8C4C58 /* Pods-TideDemo */,
-				C8BDF7B97BC45B4D1D0837481355B7CF /* SwiftyTimer */,
+				D1DC35DB2C695031A72543555FB23729 /* AsyncSwift */,
+				514AD73B93B8B09AB38937AC19A3F9A2 /* Atlantis */,
+				D0349AB674F1F417834F86BBA9E2981F /* Pods-TideDemo */,
+				AC23AEB9637A76284D8C334D27E9A141 /* SwiftyTimer */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		0B15CCE8BD5E6A49142AD691BB4FDDDE /* Sources */ = {
+		0988D72F0D4B4A78F5FC94ABB6D77D82 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7F01A6710DEC4066188E647E16451412 /* Atlantis-dummy.m in Sources */,
-				8BB7FE0FE68464047A382A94694532A1 /* Atlantis.swift in Sources */,
+				217E102EFC500CD37C338A0DB36B8D1C /* Pods-TideDemo-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		56BFF911D077796F02A9F8F776A972CA /* Sources */ = {
+		1F576B4EDF70DC86955BA161C7BA62C3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F303D9BA1A4B960FA27EE9D1965AA017 /* Pods-TideDemo-dummy.m in Sources */,
+				33861DE5DCDC55E80862313605E735EA /* SwiftyTimer-dummy.m in Sources */,
+				74515C5828BAE23C4FACD94CA68CDDE8 /* SwiftyTimer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B9ED69505DC1B8ED9A76A37D5DD0A185 /* Sources */ = {
+		8A50EC43E2E52EC3C02907FFC4A43D50 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C24B9B835890A62AFEED0A972EC6B79 /* SwiftyTimer-dummy.m in Sources */,
-				476ECF5E33E41762DE6684A2979D0B23 /* SwiftyTimer.swift in Sources */,
+				126169B8BF7430D89BB990B97C36D75F /* Async.swift in Sources */,
+				2754C4E95E265639D7CFC90BA8264476 /* AsyncSwift-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DEACC3D2313E4228D534C2DB1546C300 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8C99DF9829A231CE3B3716802B0010CB /* Atlantis-dummy.m in Sources */,
+				3AEED5C3DB116E8F791046B9ED21ADFD /* Atlantis.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		8C1F89B0D7880CD1CEDD2B57838144D5 /* PBXTargetDependency */ = {
+		14D5148BA0194FBF7D04DAC0CB186CEA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = Atlantis;
-			target = 324CE6186FDBEA46DD959B8976916466 /* Atlantis */;
-			targetProxy = E1F99B36C87415D293E6F369F6410DB0 /* PBXContainerItemProxy */;
+			name = AsyncSwift;
+			target = D1DC35DB2C695031A72543555FB23729 /* AsyncSwift */;
+			targetProxy = 33FD600718FF35E967A096CC1A8B7903 /* PBXContainerItemProxy */;
 		};
-		BC790F510C1DADB50ED3A467423CB8BF /* PBXTargetDependency */ = {
+		76B57EA582B99068552DAF8F93CBDD37 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SwiftyTimer;
-			target = C8BDF7B97BC45B4D1D0837481355B7CF /* SwiftyTimer */;
-			targetProxy = 7F9E869024D162E37AA349435856092B /* PBXContainerItemProxy */;
+			target = AC23AEB9637A76284D8C334D27E9A141 /* SwiftyTimer */;
+			targetProxy = 9B125E4A8BD100354045E00E42431EE2 /* PBXContainerItemProxy */;
+		};
+		CA4B663642DAE01198FDF8BC6D2BF04D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Atlantis;
+			target = 514AD73B93B8B09AB38937AC19A3F9A2 /* Atlantis */;
+			targetProxy = DDA04FB5777C25912CDD8D065B28A1C5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		1BA0F9F8A0014897B75D30E9CAB0CCDB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EFA51DC6947FEB20427736FABA4FC05A /* Pods-TideDemo.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-TideDemo/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-TideDemo/Pods-TideDemo.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_TideDemo;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		1F73689ACEA26BAEC84FA01FB35A1779 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8C5AEA130D3BC50786962B401579E82C /* SwiftyTimer.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftyTimer/SwiftyTimer-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftyTimer/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SwiftyTimer/SwiftyTimer.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = SwiftyTimer;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		2F590C4908FB0A99975D0E4141E7AE84 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F269BDEC115B7C127DD219CFD8BC84A4 /* Pods-TideDemo.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-TideDemo/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-TideDemo/Pods-TideDemo.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_TideDemo;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		45F3A0F7DB9AEF5299DC27E73F18141C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8C5AEA130D3BC50786962B401579E82C /* SwiftyTimer.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftyTimer/SwiftyTimer-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftyTimer/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SwiftyTimer/SwiftyTimer.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = SwiftyTimer;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		47BEF9D903506B003EA5C2B249729489 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -413,43 +637,9 @@
 			};
 			name = Debug;
 		};
-		4C970002208A7800241BE9CE80760124 /* Debug */ = {
+		4FE392E812DAD6AE9F24A74E8905F488 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F269BDEC115B7C127DD219CFD8BC84A4 /* Pods-TideDemo.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-TideDemo/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-TideDemo/Pods-TideDemo.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_TideDemo;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		5B7C607FE93E6C094863F444FBE1EB1D /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 04F108C3844CD1DA7605CEDE49B20456 /* Atlantis.xcconfig */;
+			baseConfigurationReference = 4B25FE9D67C184174244F5A61DA26F88 /* AsyncSwift.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -460,14 +650,14 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Atlantis/Atlantis-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Atlantis/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/AsyncSwift/AsyncSwift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/AsyncSwift/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Atlantis/Atlantis.modulemap";
+				MODULEMAP_FILE = "Target Support Files/AsyncSwift/AsyncSwift.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = Atlantis;
+				PRODUCT_NAME = Async;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -514,42 +704,39 @@
 			};
 			name = Release;
 		};
-		AD22B2888DA6D737BC2BA92BBEFF1C5A /* Release */ = {
+		ACE86AFFAB489BE1565B469221BEA3B3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EFA51DC6947FEB20427736FABA4FC05A /* Pods-TideDemo.release.xcconfig */;
+			baseConfigurationReference = 4B25FE9D67C184174244F5A61DA26F88 /* AsyncSwift.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-TideDemo/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/AsyncSwift/AsyncSwift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/AsyncSwift/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-TideDemo/Pods-TideDemo.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_TideDemo;
+				MODULEMAP_FILE = "Target Support Files/AsyncSwift/AsyncSwift.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = Async;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
-		C52C7743AA373035F0DB7D135BA74DB0 /* Debug */ = {
+		CA6FC452559BADDCB3622F3B9A729F98 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 04F108C3844CD1DA7605CEDE49B20456 /* Atlantis.xcconfig */;
+			baseConfigurationReference = 080AF2DE7C54E986751E1D38B8B150C0 /* Atlantis.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -577,9 +764,9 @@
 			};
 			name = Debug;
 		};
-		CC12D74CA2914B2DB4489BB9AA49D584 /* Release */ = {
+		D789D71A45067D4F10E7C397217D2D88 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 531DA2844F9EAEB412D842283E7CE2BE /* SwiftyTimer.xcconfig */;
+			baseConfigurationReference = 080AF2DE7C54E986751E1D38B8B150C0 /* Atlantis.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -590,14 +777,14 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/SwiftyTimer/SwiftyTimer-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SwiftyTimer/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/Atlantis/Atlantis-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Atlantis/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/SwiftyTimer/SwiftyTimer.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Atlantis/Atlantis.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = SwiftyTimer;
+				PRODUCT_NAME = Atlantis;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -606,44 +793,23 @@
 			};
 			name = Release;
 		};
-		EF5642EFB25724C4F4C2D1BC001ECB5C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 531DA2844F9EAEB412D842283E7CE2BE /* SwiftyTimer.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/SwiftyTimer/SwiftyTimer-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SwiftyTimer/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/SwiftyTimer/SwiftyTimer.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = SwiftyTimer;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1111C4777FD714F72946205AD8826AF2 /* Build configuration list for PBXNativeTarget "Pods-TideDemo" */ = {
+		13A2306A84981129D300A61C533B6A3B /* Build configuration list for PBXNativeTarget "Pods-TideDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4C970002208A7800241BE9CE80760124 /* Debug */,
-				AD22B2888DA6D737BC2BA92BBEFF1C5A /* Release */,
+				2F590C4908FB0A99975D0E4141E7AE84 /* Debug */,
+				1BA0F9F8A0014897B75D30E9CAB0CCDB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2C22D6720637A1B2B2F95C2B902C0C7D /* Build configuration list for PBXNativeTarget "AsyncSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ACE86AFFAB489BE1565B469221BEA3B3 /* Debug */,
+				4FE392E812DAD6AE9F24A74E8905F488 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -657,20 +823,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6C728247A2E22A64F471F0F3E7D6CF1F /* Build configuration list for PBXNativeTarget "SwiftyTimer" */ = {
+		4FCF5CCF921D9BA4C1CB0DB83F8ADB8F /* Build configuration list for PBXNativeTarget "Atlantis" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				EF5642EFB25724C4F4C2D1BC001ECB5C /* Debug */,
-				CC12D74CA2914B2DB4489BB9AA49D584 /* Release */,
+				CA6FC452559BADDCB3622F3B9A729F98 /* Debug */,
+				D789D71A45067D4F10E7C397217D2D88 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CCF0865D6CBA1569B1589774D438DC5A /* Build configuration list for PBXNativeTarget "Atlantis" */ = {
+		A62D8580977BF2596F89D49557792BF6 /* Build configuration list for PBXNativeTarget "SwiftyTimer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C52C7743AA373035F0DB7D135BA74DB0 /* Debug */,
-				5B7C607FE93E6C094863F444FBE1EB1D /* Release */,
+				1F73689ACEA26BAEC84FA01FB35A1779 /* Debug */,
+				45F3A0F7DB9AEF5299DC27E73F18141C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -1,24 +1,18 @@
 PODS:
-  - Atlantis (1.0)
+  - AsyncSwift (1.7.2)
+  - Atlantis (0.1.1)
   - SwiftyTimer (1.4.0)
 
 DEPENDENCIES:
-  - Atlantis (from `https://github.com/DrewKiino/Atlantis`)
+  - AsyncSwift
+  - Atlantis
   - SwiftyTimer
 
-EXTERNAL SOURCES:
-  Atlantis:
-    :git: https://github.com/DrewKiino/Atlantis
-
-CHECKOUT OPTIONS:
-  Atlantis:
-    :commit: 322b564f95c951a1c214660309cf8c620bc4af74
-    :git: https://github.com/DrewKiino/Atlantis
-
 SPEC CHECKSUMS:
-  Atlantis: 4c7e9eafc96245f0a398c661d0b77191dd975b7d
+  AsyncSwift: 46a78bceb11f0e5bb52747f740d9692ec78d2d7c
+  Atlantis: 33d4c4c436b6af3b640c2c6b2317c72d1fb41f00
   SwiftyTimer: db4458cfaf67fc71e16ad6e4637c60b86f76a649
 
-PODFILE CHECKSUM: fbaa115b73895b3d2f5dafeee2ddf1017f4e4188
+PODFILE CHECKSUM: c9072d85fdfcb345d404181fefaa59cacfb62e1f
 
 COCOAPODS: 1.0.1

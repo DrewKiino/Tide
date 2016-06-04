@@ -235,12 +235,24 @@ public class Tide {
 extension UIImageView {
   
   public func fitClip() -> Self {
-    image = Tide.resizeImage(image, size: frame.size)
+    Async.utility { [weak self] in
+      var imageMod: UIImage? = Tide.resizeImage(self?.image, size: self?.frame.size)
+      Async.main { [weak self] in
+        self?.image = imageMod
+        imageMod = nil
+      }
+    }
     return self
   }
   
   public func rounded() -> Self {
-    image = Tide.Util.maskImageWithEllipse(image)
+    Async.utility { [weak self] in
+      var imageMod: UIImage? = Tide.Util.maskImageWithEllipse(self?.image)
+      Async.main { [weak self] in
+        self?.image = imageMod
+        imageMod = nil
+      }
+    }
     return self
   }
 }
