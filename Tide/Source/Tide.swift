@@ -18,7 +18,6 @@ public class Tide {
   }
   
   public func clipImage() -> Tide {
-    Tide.resizeImage(<#T##image: UIImage?##UIImage?#>, size: <#T##CGSize?#>)
     return self
   }
   
