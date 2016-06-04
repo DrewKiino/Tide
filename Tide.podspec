@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
  
  
   # 6 - Replace this URL with your own Git URL from "Quick Setup"
-  s.source = { :git => "[https://github.com/DrewKiino/Tide]", :tag => "#{s.version}"}
+  s.source = { :git => "[https://github.com/DrewKiino/Tide.git]", :tag => "#{s.version}"}
  
   # For example,
   # s.source = { :git => "https://github.com/JRG-Developer/Tide.git", :tag => "#{s.version}"}
