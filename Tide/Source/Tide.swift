@@ -17,43 +17,84 @@ public class Tide {
     self.image = image
   }
   
-  public func clipImage() -> Tide {
+  public func fitClip(size: CGSize?) -> Tide {
+    image = Tide.resizeImage(image, size: size)
+    return self
+  }
+  
+  public func rounded() -> Tide {
+    image = Tide.Util.maskImageWithEllipse(image)
     return self
   }
   
   public static func resizeImage(image: UIImage?, size: CGSize?) -> UIImage? {
-    guard let size = size where size.height > 0 && size.width > 0 else { return nil }
-    var _image: UIImage? = image
+    guard let image = image, let size = size where size.height > 0 && size.width > 0 else { return nil }
     
-    let imgRef = Util.CGImageWithCorrectOrientation(_image)
+    let imgRef = Util.CGImageWithCorrectOrientation(image)
     let originalWidth  = CGFloat(CGImageGetWidth(imgRef))
     let originalHeight = CGFloat(CGImageGetHeight(imgRef))
     let widthRatio = size.width / originalWidth
     let heightRatio = size.height / originalHeight
-    
     let scaleRatio = widthRatio > heightRatio ? widthRatio : heightRatio
+    let resizedImageBounds: CGRect? = CGRect(x: 0, y: 0, width: round(originalWidth * scaleRatio), height: round(originalHeight * scaleRatio))
     
-    var resizedImageBounds: CGRect? = CGRect(x: 0, y: 0, width: round(originalWidth * scaleRatio), height: round(originalHeight * scaleRatio))
+    guard let resizedImage: UIImage = Util.drawImageInBounds(image, bounds: resizedImageBounds) else { return nil }
     
-    guard let resizedImage: UIImage = Util.drawImageInBounds(_image, bounds: resizedImageBounds) else { return nil }
+    let croppedRect = CGRect(
+      x: (resizedImage.size.width - size.width) / 2,
+      y: (resizedImage.size.height - size.height) / 2,
+      width: size.width, height: size.height
+    )
     
-    //    switch (fitMode) {
-    //    case .Clip:
-    _image = nil
-    resizedImageBounds = nil
-    return resizedImage
-    //    case .Crop:
-    //      let croppedRect = CGRect(x: (resizedImage.size.width - size.width) / 2, y: (resizedImage.size.height - size.height) / 2, width: size.width, height: size.height)
-    //      return Util.croppedImageWithRect(resizedImage, rect: croppedRect)
-    //    case .Scale:
-    //      return Util.drawImageInBounds(resizedImage, bounds: CGRect(x: 0, y: 0, width: size.width, height: size.height))
-    //    }
+    return Util.croppedImageWithRect(resizedImage, rect: croppedRect)
   }
   
   /**
    Container struct for internally used utility functions.
    */
   internal struct Util {
+    
+    /**
+     Mask the given image with an ellipse.
+     Allows specifying an additional border to draw on the clipped image.
+     For a circle, ensure the image width and height are equal!
+     
+     - parameter image:       Image to apply the mask to
+     - parameter borderWidth: Optional width of the border to apply - default 0
+     - parameter borderColor: Optional color of the border - default White
+     
+     - returns: Masked image
+     */
+    static func maskImageWithEllipse(
+      image: UIImage?,
+      borderWidth: CGFloat = 0,
+      borderColor: UIColor = UIColor.whiteColor()
+    ) -> UIImage? {
+      
+      guard let image = image else { return nil }
+      
+      let imgRef = Util.CGImageWithCorrectOrientation(image)
+      let size = CGSize(width: CGFloat(CGImageGetWidth(imgRef)) / image.scale, height: CGFloat(CGImageGetHeight(imgRef)) / image.scale)
+      
+      return Util.drawImageWithClosure(size: size) { (size: CGSize, context: CGContext) -> () in
+        
+        let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+        
+        CGContextAddEllipseInRect(context, rect)
+        CGContextClip(context)
+        image.drawInRect(rect)
+        
+        if (borderWidth > 0) {
+          CGContextSetStrokeColorWithColor(context, borderColor.CGColor);
+          CGContextSetLineWidth(context, borderWidth);
+          CGContextAddEllipseInRect(context, CGRect(x: borderWidth / 2,
+            y: borderWidth / 2,
+            width: size.width - borderWidth,
+            height: size.height - borderWidth));
+          CGContextStrokePath(context);
+        }
+      }
+    }
     
     /**
      Get the CGImage of the image with the orientation fixed up based on EXF data.
@@ -189,3 +230,27 @@ public class Tide {
     }
   }
 }
+
+extension UIImageView {
+  
+  public func fitClip() -> Self {
+    image = Tide.resizeImage(image, size: frame.size)
+    return self
+  }
+  
+  public func rounded() -> Self {
+    image = Tide.Util.maskImageWithEllipse(image)
+    return self
+  }
+}
+
+
+
+
+
+
+
+
+
+
+

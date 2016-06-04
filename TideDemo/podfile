@@ -1,0 +1,16 @@
+#Podfile
+
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '8.0'
+
+use_frameworks!
+
+#####################################
+
+target 'TideDemo' do
+
+pod 'SwiftyTimer'
+pod 'Atlantis', :git => 'https://github.com/DrewKiino/Atlantis'
+
+end
+

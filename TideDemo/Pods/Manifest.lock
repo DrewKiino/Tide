@@ -1,0 +1,24 @@
+PODS:
+  - Atlantis (1.0)
+  - SwiftyTimer (1.4.0)
+
+DEPENDENCIES:
+  - Atlantis (from `https://github.com/DrewKiino/Atlantis`)
+  - SwiftyTimer
+
+EXTERNAL SOURCES:
+  Atlantis:
+    :git: https://github.com/DrewKiino/Atlantis
+
+CHECKOUT OPTIONS:
+  Atlantis:
+    :commit: 322b564f95c951a1c214660309cf8c620bc4af74
+    :git: https://github.com/DrewKiino/Atlantis
+
+SPEC CHECKSUMS:
+  Atlantis: 4c7e9eafc96245f0a398c661d0b77191dd975b7d
+  SwiftyTimer: db4458cfaf67fc71e16ad6e4637c60b86f76a649
+
+PODFILE CHECKSUM: fbaa115b73895b3d2f5dafeee2ddf1017f4e4188
+
+COCOAPODS: 1.0.1

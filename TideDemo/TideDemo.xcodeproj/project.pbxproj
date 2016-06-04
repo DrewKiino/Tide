@@ -1,0 +1,599 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E3ECB9FEE065C51591B1DF37 /* Pods_TideDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A5A8E6B9E71E5DCCEA7CC6 /* Pods_TideDemo.framework */; };
+		EEC98E9B1D033FC100628DE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC98E9A1D033FC100628DE2 /* AppDelegate.swift */; };
+		EEC98E9D1D033FC100628DE2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC98E9C1D033FC100628DE2 /* ViewController.swift */; };
+		EEC98EA01D033FC100628DE2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEC98E9E1D033FC100628DE2 /* Main.storyboard */; };
+		EEC98EA21D033FC100628DE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEC98EA11D033FC100628DE2 /* Assets.xcassets */; };
+		EEC98EA51D033FC100628DE2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEC98EA31D033FC100628DE2 /* LaunchScreen.storyboard */; };
+		EEC98EB01D033FC200628DE2 /* TideDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC98EAF1D033FC200628DE2 /* TideDemoTests.swift */; };
+		EEC98EBB1D033FC200628DE2 /* TideDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC98EBA1D033FC200628DE2 /* TideDemoUITests.swift */; };
+		EEC98ECA1D033FDD00628DE2 /* Tide.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC98EC91D033FDD00628DE2 /* Tide.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EEC98EAC1D033FC200628DE2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EEC98E8F1D033FC100628DE2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EEC98E961D033FC100628DE2;
+			remoteInfo = TideDemo;
+		};
+		EEC98EB71D033FC200628DE2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EEC98E8F1D033FC100628DE2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EEC98E961D033FC100628DE2;
+			remoteInfo = TideDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		45A5A8E6B9E71E5DCCEA7CC6 /* Pods_TideDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TideDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		625B17CFC910C40EF7456199 /* Pods-TideDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TideDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-TideDemo/Pods-TideDemo.release.xcconfig"; sourceTree = "<group>"; };
+		CAF89F4995EAE56242591FF6 /* Pods-TideDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TideDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TideDemo/Pods-TideDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		EEC98E971D033FC100628DE2 /* TideDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TideDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EEC98E9A1D033FC100628DE2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EEC98E9C1D033FC100628DE2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EEC98E9F1D033FC100628DE2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EEC98EA11D033FC100628DE2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EEC98EA41D033FC100628DE2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EEC98EA61D033FC100628DE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EEC98EAB1D033FC200628DE2 /* TideDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TideDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EEC98EAF1D033FC200628DE2 /* TideDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TideDemoTests.swift; sourceTree = "<group>"; };
+		EEC98EB11D033FC200628DE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EEC98EB61D033FC200628DE2 /* TideDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TideDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EEC98EBA1D033FC200628DE2 /* TideDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TideDemoUITests.swift; sourceTree = "<group>"; };
+		EEC98EBC1D033FC200628DE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EEC98EC91D033FDD00628DE2 /* Tide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Tide.swift; path = ../../Tide/Source/Tide.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EEC98E941D033FC100628DE2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E3ECB9FEE065C51591B1DF37 /* Pods_TideDemo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EEC98EA81D033FC200628DE2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EEC98EB31D033FC200628DE2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		14E612619CE2B1FA9255D804 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				45A5A8E6B9E71E5DCCEA7CC6 /* Pods_TideDemo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D27DC1E718485C82DE6A8636 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CAF89F4995EAE56242591FF6 /* Pods-TideDemo.debug.xcconfig */,
+				625B17CFC910C40EF7456199 /* Pods-TideDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		EEC98E8E1D033FC100628DE2 = {
+			isa = PBXGroup;
+			children = (
+				EEC98E991D033FC100628DE2 /* TideDemo */,
+				EEC98EAE1D033FC200628DE2 /* TideDemoTests */,
+				EEC98EB91D033FC200628DE2 /* TideDemoUITests */,
+				EEC98E981D033FC100628DE2 /* Products */,
+				D27DC1E718485C82DE6A8636 /* Pods */,
+				14E612619CE2B1FA9255D804 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		EEC98E981D033FC100628DE2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EEC98E971D033FC100628DE2 /* TideDemo.app */,
+				EEC98EAB1D033FC200628DE2 /* TideDemoTests.xctest */,
+				EEC98EB61D033FC200628DE2 /* TideDemoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EEC98E991D033FC100628DE2 /* TideDemo */ = {
+			isa = PBXGroup;
+			children = (
+				EEC98EC81D033FD400628DE2 /* Source */,
+				EEC98E9A1D033FC100628DE2 /* AppDelegate.swift */,
+				EEC98E9C1D033FC100628DE2 /* ViewController.swift */,
+				EEC98E9E1D033FC100628DE2 /* Main.storyboard */,
+				EEC98EA11D033FC100628DE2 /* Assets.xcassets */,
+				EEC98EA31D033FC100628DE2 /* LaunchScreen.storyboard */,
+				EEC98EA61D033FC100628DE2 /* Info.plist */,
+			);
+			path = TideDemo;
+			sourceTree = "<group>";
+		};
+		EEC98EAE1D033FC200628DE2 /* TideDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				EEC98EAF1D033FC200628DE2 /* TideDemoTests.swift */,
+				EEC98EB11D033FC200628DE2 /* Info.plist */,
+			);
+			path = TideDemoTests;
+			sourceTree = "<group>";
+		};
+		EEC98EB91D033FC200628DE2 /* TideDemoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				EEC98EBA1D033FC200628DE2 /* TideDemoUITests.swift */,
+				EEC98EBC1D033FC200628DE2 /* Info.plist */,
+			);
+			path = TideDemoUITests;
+			sourceTree = "<group>";
+		};
+		EEC98EC81D033FD400628DE2 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				EEC98EC91D033FDD00628DE2 /* Tide.swift */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EEC98E961D033FC100628DE2 /* TideDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EEC98EBF1D033FC200628DE2 /* Build configuration list for PBXNativeTarget "TideDemo" */;
+			buildPhases = (
+				04F02DBF5993AF72AA59D7FB /* [CP] Check Pods Manifest.lock */,
+				EEC98E931D033FC100628DE2 /* Sources */,
+				EEC98E941D033FC100628DE2 /* Frameworks */,
+				EEC98E951D033FC100628DE2 /* Resources */,
+				BD5768D1C4AF45EEB0DD6231 /* [CP] Embed Pods Frameworks */,
+				4C3699726034B0D140CD8CD3 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TideDemo;
+			productName = TideDemo;
+			productReference = EEC98E971D033FC100628DE2 /* TideDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EEC98EAA1D033FC200628DE2 /* TideDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EEC98EC21D033FC200628DE2 /* Build configuration list for PBXNativeTarget "TideDemoTests" */;
+			buildPhases = (
+				EEC98EA71D033FC200628DE2 /* Sources */,
+				EEC98EA81D033FC200628DE2 /* Frameworks */,
+				EEC98EA91D033FC200628DE2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EEC98EAD1D033FC200628DE2 /* PBXTargetDependency */,
+			);
+			name = TideDemoTests;
+			productName = TideDemoTests;
+			productReference = EEC98EAB1D033FC200628DE2 /* TideDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		EEC98EB51D033FC200628DE2 /* TideDemoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EEC98EC51D033FC200628DE2 /* Build configuration list for PBXNativeTarget "TideDemoUITests" */;
+			buildPhases = (
+				EEC98EB21D033FC200628DE2 /* Sources */,
+				EEC98EB31D033FC200628DE2 /* Frameworks */,
+				EEC98EB41D033FC200628DE2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EEC98EB81D033FC200628DE2 /* PBXTargetDependency */,
+			);
+			name = TideDemoUITests;
+			productName = TideDemoUITests;
+			productReference = EEC98EB61D033FC200628DE2 /* TideDemoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EEC98E8F1D033FC100628DE2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Andrew Aquino";
+				TargetAttributes = {
+					EEC98E961D033FC100628DE2 = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					EEC98EAA1D033FC200628DE2 = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = EEC98E961D033FC100628DE2;
+					};
+					EEC98EB51D033FC200628DE2 = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = EEC98E961D033FC100628DE2;
+					};
+				};
+			};
+			buildConfigurationList = EEC98E921D033FC100628DE2 /* Build configuration list for PBXProject "TideDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EEC98E8E1D033FC100628DE2;
+			productRefGroup = EEC98E981D033FC100628DE2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EEC98E961D033FC100628DE2 /* TideDemo */,
+				EEC98EAA1D033FC200628DE2 /* TideDemoTests */,
+				EEC98EB51D033FC200628DE2 /* TideDemoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EEC98E951D033FC100628DE2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EEC98EA51D033FC100628DE2 /* LaunchScreen.storyboard in Resources */,
+				EEC98EA21D033FC100628DE2 /* Assets.xcassets in Resources */,
+				EEC98EA01D033FC100628DE2 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EEC98EA91D033FC200628DE2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EEC98EB41D033FC200628DE2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		04F02DBF5993AF72AA59D7FB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		4C3699726034B0D140CD8CD3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TideDemo/Pods-TideDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BD5768D1C4AF45EEB0DD6231 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TideDemo/Pods-TideDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EEC98E931D033FC100628DE2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EEC98ECA1D033FDD00628DE2 /* Tide.swift in Sources */,
+				EEC98E9D1D033FC100628DE2 /* ViewController.swift in Sources */,
+				EEC98E9B1D033FC100628DE2 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EEC98EA71D033FC200628DE2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EEC98EB01D033FC200628DE2 /* TideDemoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EEC98EB21D033FC200628DE2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EEC98EBB1D033FC200628DE2 /* TideDemoUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EEC98EAD1D033FC200628DE2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EEC98E961D033FC100628DE2 /* TideDemo */;
+			targetProxy = EEC98EAC1D033FC200628DE2 /* PBXContainerItemProxy */;
+		};
+		EEC98EB81D033FC200628DE2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EEC98E961D033FC100628DE2 /* TideDemo */;
+			targetProxy = EEC98EB71D033FC200628DE2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EEC98E9E1D033FC100628DE2 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EEC98E9F1D033FC100628DE2 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EEC98EA31D033FC100628DE2 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EEC98EA41D033FC100628DE2 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EEC98EBD1D033FC200628DE2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EEC98EBE1D033FC200628DE2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EEC98EC01D033FC200628DE2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CAF89F4995EAE56242591FF6 /* Pods-TideDemo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = TideDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = TotemV.TideDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		EEC98EC11D033FC200628DE2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 625B17CFC910C40EF7456199 /* Pods-TideDemo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = TideDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = TotemV.TideDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		EEC98EC31D033FC200628DE2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = TideDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = TotemV.TideDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TideDemo.app/TideDemo";
+			};
+			name = Debug;
+		};
+		EEC98EC41D033FC200628DE2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = TideDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = TotemV.TideDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TideDemo.app/TideDemo";
+			};
+			name = Release;
+		};
+		EEC98EC61D033FC200628DE2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = TideDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = TotemV.TideDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = TideDemo;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		EEC98EC71D033FC200628DE2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = TideDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = TotemV.TideDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = TideDemo;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EEC98E921D033FC100628DE2 /* Build configuration list for PBXProject "TideDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EEC98EBD1D033FC200628DE2 /* Debug */,
+				EEC98EBE1D033FC200628DE2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EEC98EBF1D033FC200628DE2 /* Build configuration list for PBXNativeTarget "TideDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EEC98EC01D033FC200628DE2 /* Debug */,
+				EEC98EC11D033FC200628DE2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EEC98EC21D033FC200628DE2 /* Build configuration list for PBXNativeTarget "TideDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EEC98EC31D033FC200628DE2 /* Debug */,
+				EEC98EC41D033FC200628DE2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EEC98EC51D033FC200628DE2 /* Build configuration list for PBXNativeTarget "TideDemoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EEC98EC61D033FC200628DE2 /* Debug */,
+				EEC98EC71D033FC200628DE2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EEC98E8F1D033FC100628DE2 /* Project object */;
+}
