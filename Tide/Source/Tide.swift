@@ -12,6 +12,11 @@ import Async
 
 public class Tide {
   
+  private struct Singleton {
+    private static var queue1: Async?
+    private static var queue2: Async?
+  }
+  
   public var image: UIImage?
   
   public init(image: UIImage?) {
@@ -229,27 +234,51 @@ public class Tide {
       _closure = nil
       return _image
     }
+  
+    private static func utility(execute: dispatch_block_t) {
+      if Tide.Singleton.queue1 == nil {
+        Tide.Singleton.queue1 = Async.utility(block: execute)
+      } else {
+        execute()
+      }
+    }
+    
+    private static func main(execute: dispatch_block_t) {
+      if Tide.Singleton.queue2 == nil {
+        Tide.Singleton.queue2 = Async.main(block: execute)
+      } else {
+        execute()
+      }
+    }
   }
 }
 
 extension UIImageView {
   
-  public func fitClip() -> Self {
+  public func fitClip(image: UIImage? = nil, completionHandler: ((image: UIImage?) -> Void)? = nil) -> Self {
     Async.utility { [weak self] in
-      var imageMod: UIImage? = Tide.resizeImage(self?.image, size: self?.frame.size)
+      var imageMod: UIImage? = Tide.resizeImage(image != nil ? image : self?.image, size: self?.frame.size)
       Async.main { [weak self] in
-        self?.image = imageMod
+        if let completionHandler = completionHandler {
+          completionHandler(image: imageMod)
+        } else {
+          self?.image = imageMod
+        }
         imageMod = nil
       }
     }
     return self
   }
   
-  public func rounded() -> Self {
+  public func rounded(image: UIImage? = nil, completionHandler: ((image: UIImage?) -> Void)? = nil) -> Self {
     Async.utility { [weak self] in
-      var imageMod: UIImage? = Tide.Util.maskImageWithEllipse(self?.image)
+      var imageMod: UIImage? = Tide.Util.maskImageWithEllipse(image != nil ? image : self?.image)
       Async.main { [weak self] in
-        self?.image = imageMod
+        if let completionHandler = completionHandler {
+          completionHandler(image: imageMod)
+        } else {
+          self?.image = imageMod
+        }
         imageMod = nil
       }
     }

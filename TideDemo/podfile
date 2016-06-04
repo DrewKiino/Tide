@@ -12,6 +12,7 @@ target 'TideDemo' do
 pod 'SwiftyTimer'
 pod 'Atlantis'
 pod 'AsyncSwift'
+pod 'SDWebImage'
 
 end
 
