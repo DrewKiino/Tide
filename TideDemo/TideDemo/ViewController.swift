@@ -23,25 +23,32 @@ public class ViewController: UIViewController {
     imageView?.image = UIImage(named: "tide-example.jpg")
     view.addSubview(imageView!)
     
-    NSTimer.every(15.0) { [weak self] in
-      
-      self?.test()
-      
-      NSTimer.after(5.0) { [weak self] in
-        self?.imageView?.image = UIImage(named: "profile-pic-example.jpg")
-        self?.test()
-      }
-      
-      NSTimer.after(10.0) { [weak self] in
-        self?.imageView?.image = UIImage(named: "profile-pic-example2.jpg")
-        self?.test()
-      }
+    test0()
+    
+    NSTimer.every(10.0) { [weak self] in
+      self?.test0()
     }
   }
 
   override public func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
+  }
+  
+  public func test0() {
+    
+    imageView?.image = UIImage(named: "tide-example.jpg")
+    test()
+    
+    NSTimer.after(5.0) { [weak self] in
+      self?.imageView?.image = UIImage(named: "profile-pic-example.jpg")
+      self?.test()
+    }
+    
+    NSTimer.after(10.0) { [weak self] in
+      self?.imageView?.image = UIImage(named: "profile-pic-example2.jpg")
+      self?.test()
+    }
   }
 
   public func test() {

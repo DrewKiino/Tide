@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C6E9BC6B21B9E4B3A3ECB965 /* Pods_Tide.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7390237C7BCCDCDFF34C10 /* Pods_Tide.framework */; };
 		EE2871D41D03347E009A2A6F /* Tide.h in Headers */ = {isa = PBXBuildFile; fileRef = EE2871D31D03347E009A2A6F /* Tide.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EE2871DB1D03347E009A2A6F /* Tide.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE2871D01D03347E009A2A6F /* Tide.framework */; };
 		EE2871E01D03347E009A2A6F /* TideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2871DF1D03347E009A2A6F /* TideTests.swift */; };
@@ -24,6 +25,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		014B35B08EB53B1182F05A91 /* Pods-Tide.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tide.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tide/Pods-Tide.release.xcconfig"; sourceTree = "<group>"; };
+		7D35E60490EF6BC609FB60E3 /* Pods-Tide.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tide.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tide/Pods-Tide.debug.xcconfig"; sourceTree = "<group>"; };
+		CE7390237C7BCCDCDFF34C10 /* Pods_Tide.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tide.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE2871D01D03347E009A2A6F /* Tide.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Tide.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE2871D31D03347E009A2A6F /* Tide.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tide.h; sourceTree = "<group>"; };
 		EE2871D51D03347E009A2A6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -38,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6E9BC6B21B9E4B3A3ECB965 /* Pods_Tide.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,12 +57,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		25D0ED616CB8B3B9DCCF3579 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CE7390237C7BCCDCDFF34C10 /* Pods_Tide.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D537933C877F5B70F2246E06 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7D35E60490EF6BC609FB60E3 /* Pods-Tide.debug.xcconfig */,
+				014B35B08EB53B1182F05A91 /* Pods-Tide.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		EE2871C61D03347E009A2A6F = {
 			isa = PBXGroup;
 			children = (
 				EE2871D11D03347E009A2A6F /* Products */,
 				EE2871D21D03347E009A2A6F /* Tide */,
 				EE2871DE1D03347E009A2A6F /* TideTests */,
+				D537933C877F5B70F2246E06 /* Pods */,
+				25D0ED616CB8B3B9DCCF3579 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -115,10 +139,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EE2871E41D03347E009A2A6F /* Build configuration list for PBXNativeTarget "Tide" */;
 			buildPhases = (
+				E02D3619183DC24465CEA0C6 /* [CP] Check Pods Manifest.lock */,
 				EE2871CB1D03347E009A2A6F /* Sources */,
 				EE2871CC1D03347E009A2A6F /* Frameworks */,
 				EE2871CD1D03347E009A2A6F /* Headers */,
 				EE2871CE1D03347E009A2A6F /* Resources */,
+				B48928D6730015CF47DE1F39 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -199,6 +225,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B48928D6730015CF47DE1F39 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tide/Pods-Tide-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E02D3619183DC24465CEA0C6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EE2871CB1D03347E009A2A6F /* Sources */ = {
@@ -319,6 +378,7 @@
 		};
 		EE2871E51D03347E009A2A6F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7D35E60490EF6BC609FB60E3 /* Pods-Tide.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
@@ -337,6 +397,7 @@
 		};
 		EE2871E61D03347E009A2A6F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 014B35B08EB53B1182F05A91 /* Pods-Tide.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;

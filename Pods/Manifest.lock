@@ -1,0 +1,21 @@
+PODS:
+  - AsyncSwift (1.7.2)
+
+DEPENDENCIES:
+  - AsyncSwift (from `https://github.com/duemunk/Async`)
+
+EXTERNAL SOURCES:
+  AsyncSwift:
+    :git: https://github.com/duemunk/Async
+
+CHECKOUT OPTIONS:
+  AsyncSwift:
+    :commit: e8e53f0fd39fabc226f4609d1c910c8af27a17cc
+    :git: https://github.com/duemunk/Async
+
+SPEC CHECKSUMS:
+  AsyncSwift: 15c496983f752a3ab8d1be17e64dd4c6f2a31239
+
+PODFILE CHECKSUM: 514d5afbbda694e51f3b88c6ca9f8b5fe3c602cd
+
+COCOAPODS: 1.0.1

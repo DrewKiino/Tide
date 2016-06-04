@@ -1,0 +1,6 @@
+framework module Pods_Tide {
+  umbrella header "Pods-Tide-umbrella.h"
+
+  export *
+  module * { export * }
+}
