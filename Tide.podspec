@@ -10,8 +10,7 @@ Pod::Spec.new do |s|
   s.author = { "[Andrew Aquino]" => "[andrew@totemv.com]" }
   s.homepage = 'http://totemv.com/drewkiino.github.io'
   s.framework = "UIKit"
-  s.source = { :git => 'https://github.com/DrewKiino/Tide.git', :tag => s.version }
-  s.source_files = "Tide/**/*.{swift}"
-  s.resources = "Tide/**/*.{png,jpeg,jpg,storyboard,xib}"
+  s.source = { :git => 'https://github.com/DrewKiino/Tide.git', :tag => 'master' }
+  s.source_files = "Tide/Tide/Source/**/*.{swift}"
 
 end

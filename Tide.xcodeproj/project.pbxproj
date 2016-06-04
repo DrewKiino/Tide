@@ -55,9 +55,9 @@
 		EE2871C61D03347E009A2A6F = {
 			isa = PBXGroup;
 			children = (
+				EE2871D11D03347E009A2A6F /* Products */,
 				EE2871D21D03347E009A2A6F /* Tide */,
 				EE2871DE1D03347E009A2A6F /* TideTests */,
-				EE2871D11D03347E009A2A6F /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,8 +74,8 @@
 			isa = PBXGroup;
 			children = (
 				EE2871EA1D0334A5009A2A6F /* Source */,
-				EE2871D31D03347E009A2A6F /* Tide.h */,
 				EE2871D51D03347E009A2A6F /* Info.plist */,
+				EE2871D31D03347E009A2A6F /* Tide.h */,
 			);
 			path = Tide;
 			sourceTree = "<group>";
@@ -83,8 +83,8 @@
 		EE2871DE1D03347E009A2A6F /* TideTests */ = {
 			isa = PBXGroup;
 			children = (
-				EE2871DF1D03347E009A2A6F /* TideTests.swift */,
 				EE2871E11D03347E009A2A6F /* Info.plist */,
+				EE2871DF1D03347E009A2A6F /* TideTests.swift */,
 			);
 			path = TideTests;
 			sourceTree = "<group>";
@@ -94,7 +94,7 @@
 			children = (
 				EE2871EB1D0334D9009A2A6F /* Tide.swift */,
 			);
-			name = Source;
+			path = Source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -391,6 +391,7 @@
 				EE2871E61D03347E009A2A6F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EE2871E71D03347E009A2A6F /* Build configuration list for PBXNativeTarget "TideTests" */ = {
 			isa = XCConfigurationList;
@@ -399,6 +400,7 @@
 				EE2871E91D03347E009A2A6F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
