@@ -1,21 +1,27 @@
 PODS:
   - AsyncSwift (1.7.2)
+  - Atlantis (0.1.1)
+  - SDWebImage (3.8.0):
+    - SDWebImage/Core (= 3.8.0)
+  - SDWebImage/Core (3.8.0)
+  - Storm (0.0.7):
+    - AsyncSwift
+    - Atlantis
+    - SwiftDate
+  - SwiftDate (3.0.8)
 
 DEPENDENCIES:
-  - AsyncSwift (from `https://github.com/duemunk/Async`)
-
-EXTERNAL SOURCES:
-  AsyncSwift:
-    :git: https://github.com/duemunk/Async
-
-CHECKOUT OPTIONS:
-  AsyncSwift:
-    :commit: e8e53f0fd39fabc226f4609d1c910c8af27a17cc
-    :git: https://github.com/duemunk/Async
+  - AsyncSwift
+  - SDWebImage
+  - Storm
 
 SPEC CHECKSUMS:
-  AsyncSwift: 15c496983f752a3ab8d1be17e64dd4c6f2a31239
+  AsyncSwift: 46a78bceb11f0e5bb52747f740d9692ec78d2d7c
+  Atlantis: 33d4c4c436b6af3b640c2c6b2317c72d1fb41f00
+  SDWebImage: 7d9fe229266696de91eadf840c77ca15efd4bbd2
+  Storm: 2db726b2fbb967bc6f4a4bca76c7dfcf38cb911f
+  SwiftDate: 971f8b9394f664f2226b9c3ab64e801a7291c612
 
-PODFILE CHECKSUM: 514d5afbbda694e51f3b88c6ca9f8b5fe3c602cd
+PODFILE CHECKSUM: e90c7aa2d7e143f9a75043d20dfa68536d8c63c9
 
 COCOAPODS: 1.0.1

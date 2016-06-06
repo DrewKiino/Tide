@@ -9,7 +9,27 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Atlantis.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Tide.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SDWebImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Storm.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SwiftDate.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -17,7 +37,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>111A647FC8BBF87890FE6219C79DC9B9</key>
+		<key>514AD73B93B8B09AB38937AC19A3F9A2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5413546E7CB81A1D81FFFFD356BD9396</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>60F1C316E5698A684589A4F127C3C0D0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>757C2759A140E33CE972B40C10C07B70</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AE0036A352F74572C74AA926D79D78D7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
