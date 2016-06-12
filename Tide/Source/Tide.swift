@@ -371,8 +371,8 @@ extension UIImageView {
   }
   
   
-  public func imageFromUrl (
-    url: String?,
+  public func imageFromSource(
+    url: String? = nil,
     placeholder: UIImage? = nil,
     mask: Tide.Mask = .None,
     cornerRadius: CGFloat = 0,
