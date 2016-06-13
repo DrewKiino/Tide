@@ -380,6 +380,7 @@ extension UIImageView {
     borderColor: UIColor = UIColor.whiteColor(),
     animated: Bool = false,
     progress: (Float -> Void)? = nil,
+    forced: Bool = false,
     block: ((image: UIImage?) -> Void)? = nil)
   {
     
@@ -402,7 +403,7 @@ extension UIImageView {
             self?.alpha = 1.0
           }
         }
-        block?(image: image ?? placeholder)
+        block?(image: image ?? placeholder ?? self?.image)
       }
     }
     
@@ -420,12 +421,15 @@ extension UIImageView {
       // begin image download
       SDWebImageManager.sharedManager().downloadImageWithURL(nsurl, options: [], progress: { (received: NSInteger, actual: NSInteger) -> Void in
         progress?(Float(received) / Float(actual))
-      }) { [weak self] (image, error, cache, finished, nsurl) -> Void in
-        fitClip(image ?? placeholder)
-        self?.dismissActivityView()
+        }) { [weak self] (image, error, cache, finished, nsurl) -> Void in
+          fitClip(image ?? placeholder)
+          self?.dismissActivityView()
       }
     } else if let placeholder = placeholder {
       fitClip(placeholder)
+    } else if forced {
+      self.image = nil
+      tag = 0
     } else {
       fitClip(image)
     }
