@@ -407,7 +407,10 @@ extension UIImageView {
     
     if let url = url, let nsurl = NSURL(string: url) {
       // set the tag with the url's unique hash value
-      if tag == url.hashValue { return }
+      if tag == url.hashValue {
+        block?(image: image ?? placeholder)
+        return
+      }
       // else set the new tag as the new url's hash value
       tag = url.hashValue
       image = nil
