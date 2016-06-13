@@ -310,9 +310,9 @@ extension UIImageView {
       var imageMod: UIImage? = Tide.resizeImage(image != nil ? image : self?.image, size: self?.frame.size)
       Async.main { [weak self] in
         if let completionHandler = completionHandler {
-          completionHandler(image: imageMod)
+          completionHandler(image: imageMod ?? image)
         } else {
-          self?.image = imageMod
+          self?.image = imageMod ?? image
         }
         imageMod = nil
       }
@@ -334,9 +334,9 @@ extension UIImageView {
         )
         Async.main { [weak self] in
           if let completionHandler = completionHandler {
-            completionHandler(image: imageMod)
+            completionHandler(image: imageMod ?? image)
           } else {
-            self?.image = imageMod
+            self?.image = imageMod ?? image
           }
           imageMod = nil
         }
@@ -360,9 +360,9 @@ extension UIImageView {
         )
         Async.main { [weak self] in
           if let completionHandler = completionHandler {
-            completionHandler(image: imageMod)
+            completionHandler(image: imageMod ?? image)
           } else {
-            self?.image = imageMod
+            self?.image = imageMod ?? image
           }
           imageMod = nil
         }
@@ -379,6 +379,7 @@ extension UIImageView {
     borderWidth: CGFloat = 0,
     borderColor: UIColor = UIColor.whiteColor(),
     animated: Bool = false,
+    progress: (Float -> Void)? = nil,
     block: ((image: UIImage?) -> Void)? = nil)
   {
     
@@ -418,6 +419,7 @@ extension UIImageView {
       showActivityView(nil, width: frame.width, height: frame.height)
       // begin image download
       SDWebImageManager.sharedManager().downloadImageWithURL(nsurl, options: [], progress: { (received: NSInteger, actual: NSInteger) -> Void in
+        progress?(Float(received) / Float(actual))
       }) { [weak self] (image, error, cache, finished, nsurl) -> Void in
         fitClip(image ?? placeholder)
         self?.dismissActivityView()
