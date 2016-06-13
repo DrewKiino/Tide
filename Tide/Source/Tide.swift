@@ -401,6 +401,7 @@ extension UIImageView {
             self?.alpha = 1.0
           }
         }
+        block?(image: image ?? placeholder)
       }
     }
     
@@ -415,7 +416,6 @@ extension UIImageView {
       // begin image download
       SDWebImageManager.sharedManager().downloadImageWithURL(nsurl, options: [], progress: { (received: NSInteger, actual: NSInteger) -> Void in
       }) { [weak self] (image, error, cache, finished, nsurl) -> Void in
-        block?(image: image ?? placeholder)
         fitClip(image ?? placeholder)
         self?.dismissActivityView()
       }
