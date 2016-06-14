@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'A48656BF068AD19A46D633A7E718315C'
-               BlueprintName = 'SDWebImage'
+               BlueprintIdentifier = '49987CD63A2F54762EA4EEEF159D8FFA'
+               BlueprintName = 'Storm'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'SDWebImage.framework'>
+               BuildableName = 'Storm.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

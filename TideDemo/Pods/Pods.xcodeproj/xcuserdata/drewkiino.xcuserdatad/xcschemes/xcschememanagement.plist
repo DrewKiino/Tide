@@ -24,6 +24,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Storm.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SwiftDate.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SwiftyTimer.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,12 +42,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0A1B333A96F32A5774721E9E4A481138</key>
+		<key>3E1E4941544C39B09F3E1F116CBA4E54</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4C4B45E85C6A6ED23D3604BFFC837FBD</key>
+		<key>49987CD63A2F54762EA4EEEF159D8FFA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -47,12 +57,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>53DD360AFA2E1A9ABDF4B06D79C0E790</key>
+		<key>A48656BF068AD19A46D633A7E718315C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BBB5D4C519DCBAC07D02449B7BD1C925</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>D1DC35DB2C695031A72543555FB23729</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E672268B7978F4FA56255674CEAEB8E9</key>
 		<dict>
 			<key>primary</key>
 			<true/>

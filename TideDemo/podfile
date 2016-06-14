@@ -13,6 +13,7 @@ pod 'SwiftyTimer'
 pod 'Atlantis'
 pod 'AsyncSwift'
 pod 'SDWebImage'
+pod 'Storm'
 
 end
 

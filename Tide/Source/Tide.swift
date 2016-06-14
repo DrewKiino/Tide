@@ -379,8 +379,8 @@ extension UIImageView {
     borderWidth: CGFloat = 0,
     borderColor: UIColor = UIColor.whiteColor(),
     animated: Bool = false,
-    progress: (Float -> Void)? = nil,
     forced: Bool = false,
+    progress: (Float -> Void)? = nil,
     block: ((image: UIImage?) -> Void)? = nil)
   {
     
@@ -432,6 +432,145 @@ extension UIImageView {
       tag = 0
     } else {
       fitClip(image)
+    }
+  }
+}
+
+extension UIButton {
+  
+  public func fitClip(
+    image: UIImage? = nil,
+    forState: UIControlState,
+    completionHandler: ((image: UIImage?) -> Void)? = nil
+  ) -> Self {
+    Async.utility { [weak self] in
+      var imageMod: UIImage? = Tide.resizeImage(image != nil ? image : self?.imageView?.image, size: self?.frame.size)
+      Async.main { [weak self] in
+        if let completionHandler = completionHandler {
+          completionHandler(image: imageMod ?? image)
+        } else {
+          self?.setImage(imageMod ?? image, forState: forState)
+        }
+        imageMod = nil
+      }
+    }
+    return self
+  }
+  
+  public func rounded(
+    image: UIImage? = nil,
+    borderWidth: CGFloat = 0,
+    borderColor: UIColor = UIColor.whiteColor(),
+    forState: UIControlState,
+    completionHandler: ((image: UIImage?) -> Void)? = nil
+  ) -> Self {
+    Async.utility { [weak self] in
+      var imageMod: UIImage? = Tide.Util.maskImageWithEllipse(
+        image != nil ? image : self?.imageView?.image,
+        borderWidth: borderWidth,
+        borderColor: borderColor
+      )
+      Async.main { [weak self] in
+        if let completionHandler = completionHandler {
+          completionHandler(image: imageMod ?? image)
+        } else {
+          self?.setImage(imageMod ?? image, forState: forState)
+        }
+        imageMod = nil
+      }
+    }
+    return self
+  }
+  
+  public func squared(
+    image: UIImage? = nil,
+    cornerRadius: CGFloat,
+    borderWidth: CGFloat = 0,
+    borderColor: UIColor = UIColor.whiteColor(),
+    forState: UIControlState,
+    completionHandler: ((image: UIImage?) -> Void)? = nil
+  ) -> Self {
+    Async.utility { [weak self] in
+      var imageMod: UIImage? = Tide.Util.maskImageWithRoundedRect(
+        image != nil ? image : self?.imageView?.image,
+        cornerRadius: cornerRadius,
+        borderWidth: borderWidth,
+        borderColor: borderColor
+      )
+      Async.main { [weak self] in
+        if let completionHandler = completionHandler {
+          completionHandler(image: imageMod ?? image)
+        } else {
+          self?.setImage(imageMod ?? image, forState: forState)
+        }
+        imageMod = nil
+      }
+    }
+    return self
+  }
+  
+  public func imageFromSource(
+    url: String? = nil,
+    placeholder: UIImage? = nil,
+    mask: Tide.Mask = .None,
+    cornerRadius: CGFloat = 0,
+    borderWidth: CGFloat = 0,
+    borderColor: UIColor = UIColor.whiteColor(),
+    animated: Bool = false,
+    forced: Bool = false,
+    forState: UIControlState,
+    progress: (Float -> Void)? = nil,
+    block: ((image: UIImage?) -> Void)? = nil)
+  {
+    
+    func fitClip(image: UIImage?, forState: UIControlState) {
+      self.fitClip(image, forState: forState) { [weak self] image in
+        switch mask {
+        case .Rounded:
+          self?.rounded(image, borderWidth: borderWidth, borderColor: borderColor, forState: forState)
+          break
+        case .Squared:
+          self?.squared(image, cornerRadius: cornerRadius, borderWidth: borderWidth, borderColor: borderColor, forState: forState)
+          break
+        case .None:
+          self?.setImage(image, forState: forState)
+          break
+        }
+        if animated {
+          self?.alpha = 0.0
+          UIView.animateWithDuration(0.4) { [weak self] in
+            self?.alpha = 1.0
+          }
+        }
+        block?(image: image ?? placeholder ?? self?.imageView?.image)
+      }
+    }
+    
+    if let url = url, let nsurl = NSURL(string: url) {
+      // set the tag with the url's unique hash value
+      if tag == url.hashValue {
+        block?(image: imageView?.image ?? placeholder)
+        return
+      }
+      // else set the new tag as the new url's hash value
+      tag = url.hashValue
+      imageView?.image = nil
+      // show activity
+      showActivityView(nil, width: frame.width, height: frame.height)
+      // begin image download
+      SDWebImageManager.sharedManager().downloadImageWithURL(nsurl, options: [], progress: { (received: NSInteger, actual: NSInteger) -> Void in
+        progress?(Float(received) / Float(actual))
+        }) { [weak self] (image, error, cache, finished, nsurl) -> Void in
+          fitClip(image ?? placeholder, forState: forState)
+          self?.dismissActivityView()
+      }
+    } else if let placeholder = placeholder {
+      fitClip(placeholder, forState: forState)
+    } else if forced {
+      self.imageView?.image = nil
+      tag = 0
+    } else {
+      fitClip(imageView?.image, forState: forState)
     }
   }
 }

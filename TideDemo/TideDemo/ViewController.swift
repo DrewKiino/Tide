@@ -12,23 +12,30 @@ import SwiftyTimer
 public class ViewController: UIViewController {
   
   public var imageView: UIImageView?
+  public var button: UIButton?
   
   override public func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
     
-    imageView = UIImageView(frame: CGRectMake(0, 0, 256, 256))
-    imageView?.backgroundColor = .redColor()
-    imageView?.contentMode = .Center
-    imageView?.image = UIImage(named: "tide-example.jpg")
-    view.addSubview(imageView!)
+//    imageView = UIImageView(frame: CGRectMake(0, 0, 256, 256))
+//    imageView?.backgroundColor = .redColor()
+//    imageView?.contentMode = .Center
+//    imageView?.image = UIImage(named: "tide-example.jpg")
+//    view.addSubview(imageView!)
     
 //    imageView?.imageFromUrl("http://www.planwallpaper.com/static/images/001_Fish-Wallpaper-HD.jpg", maskWithEllipse: true)
-    test0()
+    button = UIButton(frame: CGRectMake(0, 0, 100, 100))
+    button?.backgroundColor = .redColor()
+    view.addSubview(button!)
     
-    NSTimer.every(10.0) { [weak self] in
-      self?.test0()
-    }
+    button?.imageFromSource("http://www.planwallpaper.com/static/images/001_Fish-Wallpaper-HD.jpg", forState: .Normal)
+    button?.imageFromSource("http://www.planwallpaper.com/static/images/a601cb579cc9a289bc51cd41d8bcf478_large.jpg", mask: .Rounded, forState: .Highlighted)
+//    test0()
+//    
+//    NSTimer.every(10.0) { [weak self] in
+//      self?.test0()
+//    }
   }
 
   override public func didReceiveMemoryWarning() {
@@ -36,7 +43,7 @@ public class ViewController: UIViewController {
     // Dispose of any resources that can be recreated.
   }
   
-  public func test0() {
+  public func test0(imageView: UIImageView?) {
     
     imageView?.image = UIImage(named: "tide-example.jpg")
     test()

@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.name = "Tide"
   s.summary = "Tide is an image processing library."
   s.requires_arc = true
-  s.version = "1.0.3"
+  s.version = "1.0.4"
   s.license = { :type => "MIT", :file => "LICENSE" }
   s.author = { "[Andrew Aquino]" => "[andrew@totemv.com]" }
   s.homepage = 'http://totemv.com/drewkiino.github.io'
