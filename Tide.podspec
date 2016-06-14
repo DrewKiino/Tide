@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.version = "1.0.4"
   s.license = { :type => "MIT", :file => "LICENSE" }
   s.author = { "[Andrew Aquino]" => "[andrew@totemv.com]" }
-  s.homepage = 'http://totemv.com/drewkiino.github.io'
+  s.homepage = 'http://totemv.com/drewkiino'
   s.framework = "UIKit"
   s.source = { :git => 'https://github.com/DrewKiino/Tide.git', :tag => 'master' }
 
