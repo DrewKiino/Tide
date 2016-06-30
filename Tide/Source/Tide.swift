@@ -24,6 +24,7 @@ public class Tide {
     case Clip
     case Crop
     case Scale
+    case None
   }
   
   private struct Singleton {
@@ -47,7 +48,7 @@ public class Tide {
     return self
   }
   
-  public static func resizeImage(image: UIImage?, size: CGSize?, fitMode: Tide.fitMode = .Crop) -> UIImage? {
+  public static func resizeImage(image: UIImage?, size: CGSize?, fitMode: Tide.fitMode = .Clip) -> UIImage? {
     guard let image = image, let size = size where size.height > 0 && size.width > 0 else { return nil }
     
     let imgRef = Util.CGImageWithCorrectOrientation(image)
@@ -59,18 +60,35 @@ public class Tide {
     let scaleRatio = widthRatio > heightRatio ? widthRatio : heightRatio
     
     let resizedImageBounds = CGRect(x: 0, y: 0, width: round(originalWidth * scaleRatio), height: round(originalHeight * scaleRatio))
-    let resizedImage = Util.drawImageInBounds(image, bounds: resizedImageBounds)
+    
+//    print("image view size:")
+//    print(size.width)
+//    print(size.height)
+//    print("actual image size:")
+//    print(originalWidth)
+//    print(originalHeight)
     
     switch (fitMode) {
     case .Clip:
-      return resizedImage
+      
+      let scaleOffWidth: Bool = originalWidth > originalHeight
+      
+      let width: CGFloat = scaleOffWidth ? size.width : round(size.height * originalWidth / originalHeight)
+      let height: CGFloat = !scaleOffWidth ? size.height : round(size.width * originalHeight / originalWidth)
+      
+      return Util.drawImageInBounds(image, bounds: CGRectMake(0, 0, width, height))
     case .Crop:
-      let croppedRect = CGRect(x: (resizedImage!.size.width - size.width) / 2,
-                               y: (resizedImage!.size.height - size.height) / 2,
-                               width: size.width, height: size.height)
-      return Util.croppedImageWithRect(resizedImage, rect: croppedRect)
+      if let resizedImage = Util.drawImageInBounds(image, bounds: resizedImageBounds) {
+        let croppedRect = CGRect(x: (resizedImage.size.width - size.width) / 2,
+                                 y: (resizedImage.size.height - size.height) / 2,
+                                 width: size.width, height: size.height)
+        return Util.croppedImageWithRect(resizedImage, rect: croppedRect)
+      }
+      return nil
     case .Scale:
-      return Util.drawImageInBounds(resizedImage, bounds: CGRect(x: 0, y: 0, width: size.width, height: size.height))
+      return Util.drawImageInBounds(image, bounds: CGRect(x: 0, y: 0, width: size.width, height: size.height))
+    case .None:
+      return image
     }
     
 //    let imgRef = Util.CGImageWithCorrectOrientation(image)
@@ -340,7 +358,7 @@ public class Tide {
 
 extension UIImageView {
   
-  public func fitClip(image: UIImage? = nil, fitMode: Tide.fitMode = .Crop, completionHandler: ((image: UIImage?) -> Void)? = nil) -> Self {
+  public func fitClip(image: UIImage? = nil, fitMode: Tide.fitMode = .Clip, completionHandler: ((image: UIImage?) -> Void)? = nil) -> Self {
     Async.utility { [weak self] in
       var imageMod: UIImage? = Tide.resizeImage(image != nil ? image : self?.image, size: self?.frame.size, fitMode: fitMode)
       Async.main { [weak self] in
@@ -409,7 +427,7 @@ extension UIImageView {
   public func imageFromSource(
     url: String? = nil,
     placeholder: UIImage? = nil,
-    fitMode: Tide.fitMode = .Crop,
+    fitMode: Tide.fitMode = .Clip,
     mask: Tide.Mask = .None,
     cornerRadius: CGFloat = 0,
     borderWidth: CGFloat = 0,
@@ -421,6 +439,9 @@ extension UIImageView {
   {
     
     func fitClip(image: UIImage?, fitMode: Tide.fitMode) {
+      // default the content mode so the image view does not
+      // handle the resizing of the image itself
+      contentMode = .Center
       self.fitClip(image, fitMode: fitMode) { [weak self] image in
         switch mask {
         case .Rounded:
@@ -476,6 +497,7 @@ extension UIButton {
   
   public func fitClip(
     image: UIImage? = nil,
+    fitMode: Tide.fitMode = .Clip,
     forState: UIControlState,
     completionHandler: ((image: UIImage?) -> Void)? = nil
   ) -> Self {
@@ -548,6 +570,7 @@ extension UIButton {
   public func imageFromSource(
     url: String? = nil,
     placeholder: UIImage? = nil,
+    fitMode: Tide.fitMode = .Clip,
     mask: Tide.Mask = .None,
     cornerRadius: CGFloat = 0,
     borderWidth: CGFloat = 0,
@@ -559,8 +582,11 @@ extension UIButton {
     block: ((image: UIImage?) -> Void)? = nil)
   {
     
-    func fitClip(image: UIImage?, forState: UIControlState) {
-      self.fitClip(image, forState: forState) { [weak self] image in
+    func fitClip(image: UIImage?, fitMode: Tide.fitMode, forState: UIControlState) {
+      // default the content mode so the image view does not
+      // handle the resizing of the image itself
+      imageView?.contentMode = .Center
+      self.fitClip(image, fitMode: fitMode, forState: forState) { [weak self] image in
         switch mask {
         case .Rounded:
           self?.rounded(image, borderWidth: borderWidth, borderColor: borderColor, forState: forState)
@@ -597,16 +623,16 @@ extension UIButton {
       SDWebImageManager.sharedManager().downloadImageWithURL(nsurl, options: [], progress: { (received: NSInteger, actual: NSInteger) -> Void in
         progress?(Float(received) / Float(actual))
         }) { [weak self] (image, error, cache, finished, nsurl) -> Void in
-          fitClip(image ?? placeholder, forState: forState)
+          fitClip(image ?? placeholder, fitMode: fitMode, forState: forState)
           self?.dismissActivityView()
       }
     } else if let placeholder = placeholder {
-      fitClip(placeholder, forState: forState)
+      fitClip(placeholder, fitMode: fitMode, forState: forState)
     } else if forced {
       self.imageView?.image = nil
       tag = 0
     } else {
-      fitClip(imageView?.image, forState: forState)
+      fitClip(imageView?.image, fitMode: fitMode, forState: forState)
     }
   }
 }
