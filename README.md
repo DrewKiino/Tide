@@ -115,7 +115,7 @@ profileImageView.imageFromSource(
 
 ## Credits
 
-Credit goes to [Gavin Bunney](https://github.com/gavinbunney), [Olivier Poitrey](https://github.com/rs), and [Due Munk](https://github.com/duemunk) for helping me build this awesome wrapper.
+Credit goes to [Gavin Bunney](https://github.com/gavinbunney), [Olivier Poitrey](https://github.com/rs), and [Due Munk](https://github.com/duemunk) for providing a foundation for this wrapper.
 
 ## Copyright
 
