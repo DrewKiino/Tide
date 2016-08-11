@@ -603,22 +603,24 @@ extension UIButton {
             self?.alpha = 1.0
           }
         }
+        // set the tag
+        self?.tag = url?.hashValue ?? 0
+        // hide the activity indicator
         self?.hideActivityIndicator()
+        // completion block
         block?(image: image ?? placeholder ?? self?.imageView?.image)
       }
     }
     
     if let url = url, let nsurl = NSURL(string: url) {
       // set the tag with the url's unique hash value
-      if tag == url.hashValue && !forced {
+      if tag == url.hashValue {
         block?(image: imageView?.image ?? placeholder)
         return
       }
-      // else set the new tag as the new url's hash value
-      tag = url.hashValue
-      imageView?.image = nil
-      // show activity
       showActivityIndicator()
+      // else set the new tag as the new url's hash value
+      imageView?.image = nil
       // begin image download
       SDWebImageManager.sharedManager().downloadImageWithURL(nsurl, options: [], progress: { (received: NSInteger, actual: NSInteger) -> Void in
         progress?(Float(received) / Float(actual))
@@ -641,6 +643,8 @@ extension UIView {
   private func showActivityIndicator() {
     hideActivityIndicator()
     let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
+    activityIndicator.frame = frame
+    activityIndicator.center = center
     addSubview(activityIndicator)
     activityIndicator.startAnimating()
   }
