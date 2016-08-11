@@ -459,6 +459,8 @@ extension UIImageView {
             self?.alpha = 1.0
           }
         }
+        // else set the new tag as the new url's hash value
+        self?.tag = url?.hashValue ?? 0
         self?.hideActivityIndicator()
         block?(image: image ?? placeholder ?? self?.image)
       }
@@ -470,8 +472,6 @@ extension UIImageView {
         block?(image: image ?? placeholder)
         return
       }
-      // else set the new tag as the new url's hash value
-      tag = url.hashValue
       image = nil
       // show activity
       showActivityIndicator()
@@ -643,14 +643,19 @@ extension UIView {
   private func showActivityIndicator() {
     hideActivityIndicator()
     let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
-    activityIndicator.frame = frame
+    activityIndicator.frame = CGRectMake(0, 0, frame.width, frame.height)
     activityIndicator.center = center
     addSubview(activityIndicator)
     activityIndicator.startAnimating()
   }
   
   private func hideActivityIndicator() {
-    subviews.forEach { if $0.isKindOfClass(UIActivityIndicatorView.self) { $0.removeFromSuperview() } }
+    subviews.forEach {
+      if let activityIndicator = $0 as? UIActivityIndicatorView {
+        activityIndicator.stopAnimating()
+        activityIndicator.removeFromSuperview()
+      }
+    }
   }
 }
 
