@@ -10,7 +10,6 @@ import UIKit
 import CoreGraphics
 import SDWebImage
 import Async
-import Storm
 
 public class Tide {
   
@@ -460,6 +459,7 @@ extension UIImageView {
             self?.alpha = 1.0
           }
         }
+        self?.hideActivityIndicator()
         block?(image: image ?? placeholder ?? self?.image)
       }
     }
@@ -474,13 +474,12 @@ extension UIImageView {
       tag = url.hashValue
       image = nil
       // show activity
-      showActivityView(nil, width: frame.width, height: frame.height)
+      showActivityIndicator()
       // begin image download
       SDWebImageManager.sharedManager().downloadImageWithURL(nsurl, options: [], progress: { (received: NSInteger, actual: NSInteger) -> Void in
         progress?(Float(received) / Float(actual))
         }) { [weak self] (image, error, cache, finished, nsurl) -> Void in
           fitClip(image ?? placeholder, fitMode: fitMode)
-          self?.dismissActivityView()
       }
     } else if let placeholder = placeholder {
       fitClip(placeholder, fitMode: fitMode)
@@ -576,7 +575,7 @@ extension UIButton {
     borderWidth: CGFloat = 0,
     borderColor: UIColor = UIColor.whiteColor(),
     animated: Bool = false,
-    forced: Bool = false,
+    forced: Bool = true,
     forState: UIControlState,
     progress: (Float -> Void)? = nil,
     block: ((image: UIImage?) -> Void)? = nil)
@@ -604,13 +603,14 @@ extension UIButton {
             self?.alpha = 1.0
           }
         }
+        self?.hideActivityIndicator()
         block?(image: image ?? placeholder ?? self?.imageView?.image)
       }
     }
     
     if let url = url, let nsurl = NSURL(string: url) {
       // set the tag with the url's unique hash value
-      if tag == url.hashValue {
+      if tag == url.hashValue && !forced {
         block?(image: imageView?.image ?? placeholder)
         return
       }
@@ -618,13 +618,12 @@ extension UIButton {
       tag = url.hashValue
       imageView?.image = nil
       // show activity
-      showActivityView(nil, width: frame.width, height: frame.height)
+      showActivityIndicator()
       // begin image download
       SDWebImageManager.sharedManager().downloadImageWithURL(nsurl, options: [], progress: { (received: NSInteger, actual: NSInteger) -> Void in
         progress?(Float(received) / Float(actual))
-        }) { [weak self] (image, error, cache, finished, nsurl) -> Void in
-          fitClip(image ?? placeholder, fitMode: fitMode, forState: forState)
-          self?.dismissActivityView()
+      }) { [weak self] (image, error, cache, finished, nsurl) -> Void in
+        fitClip(image ?? placeholder, fitMode: fitMode, forState: forState)
       }
     } else if let placeholder = placeholder {
       fitClip(placeholder, fitMode: fitMode, forState: forState)
@@ -637,6 +636,19 @@ extension UIButton {
   }
 }
 
+extension UIView {
+  
+  private func showActivityIndicator() {
+    hideActivityIndicator()
+    let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
+    addSubview(activityIndicator)
+    activityIndicator.startAnimating()
+  }
+  
+  private func hideActivityIndicator() {
+    subviews.forEach { if $0.isKindOfClass(UIActivityIndicatorView.self) { $0.removeFromSuperview() } }
+  }
+}
 
 
 
