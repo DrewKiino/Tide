@@ -437,13 +437,16 @@ extension UIImageView {
     block: ((image: UIImage?) -> Void)? = nil)
   {
     
-    func imageKey(image: UIImage?) -> String? {
+    func getImageKey() -> String? {
+      let widthKey = frame.size.width.description
+      let heightKey = frame.size.height.description
       let sourceKey = url?.hashValue.description ?? placeholder?.hashValue.description ?? ""
-      return sourceKey.isEmpty ? nil : sourceKey
+      let imageKey = sourceKey + widthKey + heightKey
+      return imageKey.isEmpty ? nil : imageKey
     }
     
     func cacheImage(image: UIImage?) {
-      SDImageCache.sharedImageCache().storeImage(image, forKey: imageKey(image), toDisk: false)
+      SDImageCache.sharedImageCache().storeImage(image, forKey: getImageKey(), toDisk: false)
     }
     
     func setImage(image: UIImage?) {
@@ -462,7 +465,7 @@ extension UIImageView {
       // default the content mode so the image view does not
       // handle the resizing of the image itself
       contentMode = .Center
-      if let imageKey = imageKey(image), image = SDImageCache.sharedImageCache().imageFromMemoryCacheForKey(imageKey) where CGSizeEqualToSize(image.size, frame.size) {
+      if let imageKey = getImageKey(), image = SDImageCache.sharedImageCache().imageFromMemoryCacheForKey(imageKey) where CGSizeEqualToSize(image.size, frame.size) {
         setImage(image)
       } else {
         self.fitClip(image, fitMode: fitMode) { [weak self] image in
@@ -600,13 +603,16 @@ extension UIButton {
     block: ((image: UIImage?) -> Void)? = nil)
   {
     
-    func imageKey(image: UIImage?) -> String? {
+    func getImageKey() -> String? {
+      let widthKey = frame.size.width.description
+      let heightKey = frame.size.height.description
       let sourceKey = url?.hashValue.description ?? placeholder?.hashValue.description ?? ""
-      return sourceKey.isEmpty ? nil : sourceKey
+      let imageKey = sourceKey + widthKey + heightKey
+      return imageKey.isEmpty ? nil : imageKey
     }
     
     func cacheImage(image: UIImage?) {
-      SDImageCache.sharedImageCache().storeImage(image, forKey: imageKey(image), toDisk: false)
+      SDImageCache.sharedImageCache().storeImage(image, forKey: getImageKey(), toDisk: false)
     }
     
     func setImage(image: UIImage?) {
@@ -625,7 +631,7 @@ extension UIButton {
       // default the content mode so the image view does not
       // handle the resizing of the image itself
       contentMode = .Center
-      if let imageKey = imageKey(image), image = SDImageCache.sharedImageCache().imageFromMemoryCacheForKey(imageKey) where CGSizeEqualToSize(image.size, frame.size) {
+      if let imageKey = getImageKey(), image = SDImageCache.sharedImageCache().imageFromMemoryCacheForKey(imageKey) where CGSizeEqualToSize(image.size, frame.size) {
         setImage(image)
       } else {
         self.fitClip(image, fitMode: fitMode, forState: forState) { [weak self] image in
