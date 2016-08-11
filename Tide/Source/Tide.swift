@@ -437,11 +437,9 @@ extension UIImageView {
     block: ((image: UIImage?) -> Void)? = nil)
   {
     
-    func imageKey(image: UIImage?) -> String {
-      let widthKey = image?.size.width.description ?? ""
-      let heightKey = image?.size.height.description ?? ""
+    func imageKey(image: UIImage?) -> String? {
       let sourceKey = url?.hashValue.description ?? placeholder?.hashValue.description ?? ""
-      return widthKey + heightKey + sourceKey
+      return sourceKey.isEmpty ? nil : sourceKey
     }
     
     func cacheImage(image: UIImage?) {
@@ -464,7 +462,7 @@ extension UIImageView {
       // default the content mode so the image view does not
       // handle the resizing of the image itself
       contentMode = .Center
-      if let image = SDImageCache.sharedImageCache().imageFromMemoryCacheForKey(imageKey(image)) {
+      if let imageKey = imageKey(image), image = SDImageCache.sharedImageCache().imageFromMemoryCacheForKey(imageKey) where CGSizeEqualToSize(image.size, frame.size) {
         setImage(image)
       } else {
         self.fitClip(image, fitMode: fitMode) { [weak self] image in
@@ -602,11 +600,9 @@ extension UIButton {
     block: ((image: UIImage?) -> Void)? = nil)
   {
     
-    func imageKey(image: UIImage?) -> String {
-      let widthKey = image?.size.width.description ?? ""
-      let heightKey = image?.size.height.description ?? ""
+    func imageKey(image: UIImage?) -> String? {
       let sourceKey = url?.hashValue.description ?? placeholder?.hashValue.description ?? ""
-      return widthKey + heightKey + sourceKey
+      return sourceKey.isEmpty ? nil : sourceKey
     }
     
     func cacheImage(image: UIImage?) {
@@ -629,7 +625,7 @@ extension UIButton {
       // default the content mode so the image view does not
       // handle the resizing of the image itself
       contentMode = .Center
-      if let image = SDImageCache.sharedImageCache().imageFromMemoryCacheForKey(imageKey(image)) {
+      if let imageKey = imageKey(image), image = SDImageCache.sharedImageCache().imageFromMemoryCacheForKey(imageKey) where CGSizeEqualToSize(image.size, frame.size) {
         setImage(image)
       } else {
         self.fitClip(image, fitMode: fitMode, forState: forState) { [weak self] image in
