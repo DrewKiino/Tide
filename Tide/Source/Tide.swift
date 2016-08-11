@@ -432,7 +432,7 @@ extension UIImageView {
     borderWidth: CGFloat = 0,
     borderColor: UIColor = UIColor.whiteColor(),
     animated: Bool = false,
-    forced: Bool = false,
+    forced: Bool = true,
     progress: (Float -> Void)? = nil,
     block: ((image: UIImage?) -> Void)? = nil)
   {
@@ -466,7 +466,7 @@ extension UIImageView {
     
     if let url = url, let nsurl = NSURL(string: url) {
       // set the tag with the url's unique hash value
-      if tag == url.hashValue {
+      if tag == url.hashValue && !forced {
         block?(image: image ?? placeholder)
         return
       }
