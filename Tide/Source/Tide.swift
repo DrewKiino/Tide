@@ -601,7 +601,7 @@ extension UIButton {
     
     func setImage(image: UIImage?) {
       hideActivityIndicator()
-      self.imageView?.image = image
+      self.setImage(image, forState: forState)
       if animated {
         alpha = 0.0
         UIView.animateWithDuration(0.4) { [weak self] in
@@ -657,7 +657,7 @@ extension UIButton {
     } else if let placeholder = placeholder {
       fitClip(placeholder, fitMode: fitMode)
     } else if forced {
-      self.imageView?.image = nil
+      self.setImage(nil, forState: forState)
     } else {
       fitClip(imageView?.image, fitMode: fitMode)
     }
