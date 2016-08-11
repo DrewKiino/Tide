@@ -60,12 +60,12 @@ public class Tide {
     
     let resizedImageBounds = CGRect(x: 0, y: 0, width: round(originalWidth * scaleRatio), height: round(originalHeight * scaleRatio))
     
-//    print("image view size:")
-//    print(size.width)
-//    print(size.height)
-//    print("actual image size:")
-//    print(originalWidth)
-//    print(originalHeight)
+    //    print("image view size:")
+    //    print(size.width)
+    //    print(size.height)
+    //    print("actual image size:")
+    //    print(originalWidth)
+    //    print(originalHeight)
     
     switch (fitMode) {
     case .Clip:
@@ -90,29 +90,29 @@ public class Tide {
       return image
     }
     
-//    let imgRef = Util.CGImageWithCorrectOrientation(image)
-//    let originalWidth  = CGFloat(CGImageGetWidth(imgRef))
-//    let originalHeight = CGFloat(CGImageGetHeight(imgRef))
-//    let widthRatio = size.width / originalWidth
-//    let heightRatio = size.height / originalHeight
-//    let scaleRatio = widthRatio > heightRatio ? widthRatio : heightRatio
-//    let resizedImageBounds: CGRect? = CGRect(x: 0, y: 0, width: round(originalWidth * scaleRatio), height: round(originalHeight * scaleRatio))
-//    
-//    guard let resizedImage: UIImage = Util.drawImageInBounds(image, bounds: resizedImageBounds) else { return nil }
-//    
-//    switch fitMode {
-//    case .Clip:
-//      return resizedImage
-//    case .Crop:
-//      let croppedRect = CGRect(
-//        x: (resizedImage.size.width - size.width) / 2,
-//        y: (resizedImage.size.height - size.height) / 2,
-//        width: size.width, height: size.height
-//      )
-//      return Util.croppedImageWithRect(resizedImage, rect: croppedRect)
-//    case .Scale:
-//      return Util.drawImageInBounds(resizedImage, bounds: CGRect(x: 0, y: 0, width: size.width, height: size.height))
-//    }
+    //    let imgRef = Util.CGImageWithCorrectOrientation(image)
+    //    let originalWidth  = CGFloat(CGImageGetWidth(imgRef))
+    //    let originalHeight = CGFloat(CGImageGetHeight(imgRef))
+    //    let widthRatio = size.width / originalWidth
+    //    let heightRatio = size.height / originalHeight
+    //    let scaleRatio = widthRatio > heightRatio ? widthRatio : heightRatio
+    //    let resizedImageBounds: CGRect? = CGRect(x: 0, y: 0, width: round(originalWidth * scaleRatio), height: round(originalHeight * scaleRatio))
+    //
+    //    guard let resizedImage: UIImage = Util.drawImageInBounds(image, bounds: resizedImageBounds) else { return nil }
+    //
+    //    switch fitMode {
+    //    case .Clip:
+    //      return resizedImage
+    //    case .Crop:
+    //      let croppedRect = CGRect(
+    //        x: (resizedImage.size.width - size.width) / 2,
+    //        y: (resizedImage.size.height - size.height) / 2,
+    //        width: size.width, height: size.height
+    //      )
+    //      return Util.croppedImageWithRect(resizedImage, rect: croppedRect)
+    //    case .Scale:
+    //      return Util.drawImageInBounds(resizedImage, bounds: CGRect(x: 0, y: 0, width: size.width, height: size.height))
+    //    }
   }
   
   /**
@@ -136,30 +136,30 @@ public class Tide {
       borderWidth: CGFloat = 0,
       borderColor: UIColor = UIColor.whiteColor()
       ) -> UIImage? {
+      
+      guard let image = image else { return nil }
+      
+      let imgRef = Util.CGImageWithCorrectOrientation(image)
+      let size = CGSize(width: CGFloat(CGImageGetWidth(imgRef)) / image.scale, height: CGFloat(CGImageGetHeight(imgRef)) / image.scale)
+      
+      return Util.drawImageWithClosure(size: size) { (size: CGSize, context: CGContext) -> () in
         
-        guard let image = image else { return nil }
+        let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
         
-        let imgRef = Util.CGImageWithCorrectOrientation(image)
-        let size = CGSize(width: CGFloat(CGImageGetWidth(imgRef)) / image.scale, height: CGFloat(CGImageGetHeight(imgRef)) / image.scale)
+        CGContextAddEllipseInRect(context, rect)
+        CGContextClip(context)
+        image.drawInRect(rect)
         
-        return Util.drawImageWithClosure(size: size) { (size: CGSize, context: CGContext) -> () in
-          
-          let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
-          
-          CGContextAddEllipseInRect(context, rect)
-          CGContextClip(context)
-          image.drawInRect(rect)
-          
-          if (borderWidth > 0) {
-            CGContextSetStrokeColorWithColor(context, borderColor.CGColor);
-            CGContextSetLineWidth(context, borderWidth);
-            CGContextAddEllipseInRect(context, CGRect(x: borderWidth / 2,
-              y: borderWidth / 2,
-              width: size.width - borderWidth,
-              height: size.height - borderWidth));
-            CGContextStrokePath(context);
-          }
+        if (borderWidth > 0) {
+          CGContextSetStrokeColorWithColor(context, borderColor.CGColor);
+          CGContextSetLineWidth(context, borderWidth);
+          CGContextAddEllipseInRect(context, CGRect(x: borderWidth / 2,
+            y: borderWidth / 2,
+            width: size.width - borderWidth,
+            height: size.height - borderWidth));
+          CGContextStrokePath(context);
         }
+      }
     }
     
     /**
@@ -179,29 +179,29 @@ public class Tide {
       borderWidth: CGFloat = 0,
       borderColor: UIColor = UIColor.whiteColor()
       ) -> UIImage? {
-        guard let image = image else { return nil }
-        let imgRef = Util.CGImageWithCorrectOrientation(image)
-        let size = CGSize(width: CGFloat(CGImageGetWidth(imgRef)) / image.scale, height: CGFloat(CGImageGetHeight(imgRef)) / image.scale)
+      guard let image = image else { return nil }
+      let imgRef = Util.CGImageWithCorrectOrientation(image)
+      let size = CGSize(width: CGFloat(CGImageGetWidth(imgRef)) / image.scale, height: CGFloat(CGImageGetHeight(imgRef)) / image.scale)
+      
+      return Tide.Util.drawImageWithClosure(size: size) { (size: CGSize, context: CGContext) -> () in
         
-        return Tide.Util.drawImageWithClosure(size: size) { (size: CGSize, context: CGContext) -> () in
+        let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+        
+        UIBezierPath(roundedRect:rect, cornerRadius: cornerRadius).addClip()
+        image.drawInRect(rect)
+        
+        if (borderWidth > 0) {
+          CGContextSetStrokeColorWithColor(context, borderColor.CGColor);
+          CGContextSetLineWidth(context, borderWidth);
           
-          let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+          let borderRect = CGRect(x: 0, y: 0,
+                                  width: size.width, height: size.height)
           
-          UIBezierPath(roundedRect:rect, cornerRadius: cornerRadius).addClip()
-          image.drawInRect(rect)
-          
-          if (borderWidth > 0) {
-            CGContextSetStrokeColorWithColor(context, borderColor.CGColor);
-            CGContextSetLineWidth(context, borderWidth);
-            
-            let borderRect = CGRect(x: 0, y: 0,
-              width: size.width, height: size.height)
-            
-            let borderPath = UIBezierPath(roundedRect: borderRect, cornerRadius: cornerRadius)
-            borderPath.lineWidth = borderWidth * 2
-            borderPath.stroke()
-          }
+          let borderPath = UIBezierPath(roundedRect: borderRect, cornerRadius: cornerRadius)
+          borderPath.lineWidth = borderWidth * 2
+          borderPath.stroke()
         }
+      }
     }
     
     /**
@@ -255,7 +255,7 @@ public class Tide {
       
       switch (image.imageOrientation) {
       case UIImageOrientation.Left, UIImageOrientation.LeftMirrored,
-      UIImageOrientation.Right, UIImageOrientation.RightMirrored:
+           UIImageOrientation.Right, UIImageOrientation.RightMirrored:
         contextWidth = CGImageGetHeight(image.CGImage)
         contextHeight = CGImageGetWidth(image.CGImage)
         break
@@ -266,10 +266,10 @@ public class Tide {
       }
       
       let context : CGContextRef = CGBitmapContextCreate(nil, contextWidth, contextHeight,
-        CGImageGetBitsPerComponent(image.CGImage),
-        CGImageGetBytesPerRow(image.CGImage),
-        CGImageGetColorSpace(image.CGImage),
-        CGImageGetBitmapInfo(image.CGImage).rawValue)!;
+                                                         CGImageGetBitsPerComponent(image.CGImage),
+                                                         CGImageGetBytesPerRow(image.CGImage),
+                                                         CGImageGetColorSpace(image.CGImage),
+                                                         CGImageGetBitmapInfo(image.CGImage).rawValue)!;
       
       CGContextConcatCTM(context, transform);
       CGContextDrawImage(context, CGRectMake(0, 0, CGFloat(contextWidth), CGFloat(contextHeight)), image.CGImage);
@@ -378,22 +378,22 @@ extension UIImageView {
     borderColor: UIColor = UIColor.whiteColor(),
     completionHandler: ((image: UIImage?) -> Void)? = nil
     ) -> Self {
-      Async.utility { [weak self] in
-        var imageMod: UIImage? = Tide.Util.maskImageWithEllipse(
-          image != nil ? image : self?.image,
-          borderWidth: borderWidth,
-          borderColor: borderColor
-        )
-        Async.main { [weak self] in
-          if let completionHandler = completionHandler {
-            completionHandler(image: imageMod ?? image)
-          } else {
-            self?.image = imageMod ?? image
-          }
-          imageMod = nil
+    Async.utility { [weak self] in
+      var imageMod: UIImage? = Tide.Util.maskImageWithEllipse(
+        image != nil ? image : self?.image,
+        borderWidth: borderWidth,
+        borderColor: borderColor
+      )
+      Async.main { [weak self] in
+        if let completionHandler = completionHandler {
+          completionHandler(image: imageMod ?? image)
+        } else {
+          self?.image = imageMod ?? image
         }
+        imageMod = nil
       }
-      return self
+    }
+    return self
   }
   
   public func squared(
@@ -403,23 +403,23 @@ extension UIImageView {
     borderColor: UIColor = UIColor.whiteColor(),
     completionHandler: ((image: UIImage?) -> Void)? = nil
     ) -> Self {
-      Async.utility { [weak self] in
-        var imageMod: UIImage? = Tide.Util.maskImageWithRoundedRect(
-          image != nil ? image : self?.image,
-          cornerRadius: cornerRadius,
-          borderWidth: borderWidth,
-          borderColor: borderColor
-        )
-        Async.main { [weak self] in
-          if let completionHandler = completionHandler {
-            completionHandler(image: imageMod ?? image)
-          } else {
-            self?.image = imageMod ?? image
-          }
-          imageMod = nil
+    Async.utility { [weak self] in
+      var imageMod: UIImage? = Tide.Util.maskImageWithRoundedRect(
+        image != nil ? image : self?.image,
+        cornerRadius: cornerRadius,
+        borderWidth: borderWidth,
+        borderColor: borderColor
+      )
+      Async.main { [weak self] in
+        if let completionHandler = completionHandler {
+          completionHandler(image: imageMod ?? image)
+        } else {
+          self?.image = imageMod ?? image
         }
+        imageMod = nil
       }
-      return self
+    }
+    return self
   }
   
   
@@ -437,55 +437,69 @@ extension UIImageView {
     block: ((image: UIImage?) -> Void)? = nil)
   {
     
+    func cacheImage(image: UIImage?) {
+      SDImageCache.sharedImageCache().storeImage(image, forKey: url?.hashValue.description ?? placeholder?.hashValue.description, toDisk: false)
+    }
+    
+    func setImage(image: UIImage?) {
+      hideActivityIndicator()
+      self.image = image
+      if animated {
+        alpha = 0.0
+        UIView.animateWithDuration(0.4) { [weak self] in
+          self?.alpha = 1.0
+        }
+      }
+      block?(image: image ?? placeholder)
+    }
+    
     func fitClip(image: UIImage?, fitMode: Tide.fitMode) {
       // default the content mode so the image view does not
       // handle the resizing of the image itself
       contentMode = .Center
-      self.fitClip(image, fitMode: fitMode) { [weak self] image in
-        switch mask {
-        case .Rounded:
-          self?.rounded(image, borderWidth: borderWidth, borderColor: borderColor)
-          break
-        case .Squared:
-          self?.squared(image, cornerRadius: cornerRadius, borderWidth: borderWidth, borderColor: borderColor)
-          break
-        case .None:
-          self?.image = image
-          break
-        }
-        if animated {
-          self?.alpha = 0.0
-          UIView.animateWithDuration(0.4) { [weak self] in
-            self?.alpha = 1.0
+      if let image = SDImageCache.sharedImageCache().imageFromMemoryCacheForKey(url?.hashValue.description ?? placeholder?.hashValue.description) {
+        setImage(image)
+      } else {
+        self.fitClip(image, fitMode: fitMode) { [weak self] image in
+          switch mask {
+          case .Rounded:
+            self?.rounded(image, borderWidth: borderWidth, borderColor: borderColor) { [weak self] image in
+              cacheImage(image)
+              setImage(image)
+            }
+          case .Squared:
+            self?.squared(image, cornerRadius: cornerRadius, borderWidth: borderWidth, borderColor: borderColor) { [weak self] image in
+              cacheImage(image)
+              setImage(image)
+            }
+          case .None:
+            cacheImage(image)
+            setImage(image)
           }
         }
-        // else set the new tag as the new url's hash value
-        self?.tag = url?.hashValue ?? 0
-        self?.hideActivityIndicator()
-        block?(image: image ?? placeholder ?? self?.image)
       }
     }
     
+    showActivityIndicator()
+    
     if let url = url, let nsurl = NSURL(string: url) {
-      // set the tag with the url's unique hash value
-      if tag == url.hashValue && !forced {
-        block?(image: image ?? placeholder)
-        return
-      }
-      image = nil
       // show activity
-      showActivityIndicator()
-      // begin image download
-      SDWebImageManager.sharedManager().downloadImageWithURL(nsurl, options: [], progress: { (received: NSInteger, actual: NSInteger) -> Void in
-        progress?(Float(received) / Float(actual))
-        }) { [weak self] (image, error, cache, finished, nsurl) -> Void in
-          fitClip(image ?? placeholder, fitMode: fitMode)
+      SDWebImageManager.sharedManager().downloadImageWithURL(
+        nsurl,
+        options: [
+          .CacheMemoryOnly,
+          .ProgressiveDownload
+        ],
+        progress: { (received: NSInteger, actual: NSInteger) -> Void in
+          progress?(Float(received) / Float(actual))
+        }
+      ) { [weak self] (image, error, cache, finished, nsurl) -> Void in
+        fitClip(image ?? placeholder, fitMode: fitMode)
       }
     } else if let placeholder = placeholder {
       fitClip(placeholder, fitMode: fitMode)
     } else if forced {
       self.image = nil
-      tag = 0
     } else {
       fitClip(image, fitMode: fitMode)
     }
@@ -499,7 +513,7 @@ extension UIButton {
     fitMode: Tide.fitMode = .Clip,
     forState: UIControlState,
     completionHandler: ((image: UIImage?) -> Void)? = nil
-  ) -> Self {
+    ) -> Self {
     Async.utility { [weak self] in
       var imageMod: UIImage? = Tide.resizeImage(image != nil ? image : self?.imageView?.image, size: self?.frame.size)
       Async.main { [weak self] in
@@ -520,7 +534,7 @@ extension UIButton {
     borderColor: UIColor = UIColor.whiteColor(),
     forState: UIControlState,
     completionHandler: ((image: UIImage?) -> Void)? = nil
-  ) -> Self {
+    ) -> Self {
     Async.utility { [weak self] in
       var imageMod: UIImage? = Tide.Util.maskImageWithEllipse(
         image != nil ? image : self?.imageView?.image,
@@ -546,7 +560,7 @@ extension UIButton {
     borderColor: UIColor = UIColor.whiteColor(),
     forState: UIControlState,
     completionHandler: ((image: UIImage?) -> Void)? = nil
-  ) -> Self {
+    ) -> Self {
     Async.utility { [weak self] in
       var imageMod: UIImage? = Tide.Util.maskImageWithRoundedRect(
         image != nil ? image : self?.imageView?.image,
@@ -581,59 +595,71 @@ extension UIButton {
     block: ((image: UIImage?) -> Void)? = nil)
   {
     
-    func fitClip(image: UIImage?, fitMode: Tide.fitMode, forState: UIControlState) {
+    func cacheImage(image: UIImage?) {
+      SDImageCache.sharedImageCache().storeImage(image, forKey: url?.hashValue.description ?? placeholder?.hashValue.description, toDisk: false)
+    }
+    
+    func setImage(image: UIImage?) {
+      hideActivityIndicator()
+      self.imageView?.image = image
+      if animated {
+        alpha = 0.0
+        UIView.animateWithDuration(0.4) { [weak self] in
+          self?.alpha = 1.0
+        }
+      }
+      block?(image: image ?? placeholder)
+    }
+    
+    func fitClip(image: UIImage?, fitMode: Tide.fitMode) {
       // default the content mode so the image view does not
       // handle the resizing of the image itself
-      imageView?.contentMode = .Center
-      self.fitClip(image, fitMode: fitMode, forState: forState) { [weak self] image in
-        switch mask {
-        case .Rounded:
-          self?.rounded(image, borderWidth: borderWidth, borderColor: borderColor, forState: forState)
-          break
-        case .Squared:
-          self?.squared(image, cornerRadius: cornerRadius, borderWidth: borderWidth, borderColor: borderColor, forState: forState)
-          break
-        case .None:
-          self?.setImage(image, forState: forState)
-          break
-        }
-        if animated {
-          self?.alpha = 0.0
-          UIView.animateWithDuration(0.4) { [weak self] in
-            self?.alpha = 1.0
+      contentMode = .Center
+      if let image = SDImageCache.sharedImageCache().imageFromMemoryCacheForKey(url?.hashValue.description ?? placeholder?.hashValue.description) {
+        setImage(image)
+      } else {
+        self.fitClip(image, fitMode: fitMode, forState: forState) { [weak self] image in
+          switch mask {
+          case .Rounded:
+            self?.rounded(image, borderWidth: borderWidth, borderColor: borderColor, forState: forState) { [weak self] image in
+              cacheImage(image)
+              setImage(image)
+            }
+          case .Squared:
+            self?.squared(image, cornerRadius: cornerRadius, borderWidth: borderWidth, borderColor: borderColor, forState: forState) { [weak self] image in
+              cacheImage(image)
+              setImage(image)
+            }
+          case .None:
+            cacheImage(image)
+            setImage(image)
           }
         }
-        // set the tag
-        self?.tag = url?.hashValue ?? 0
-        // hide the activity indicator
-        self?.hideActivityIndicator()
-        // completion block
-        block?(image: image ?? placeholder ?? self?.imageView?.image)
       }
     }
     
+    showActivityIndicator()
+    
     if let url = url, let nsurl = NSURL(string: url) {
-      // set the tag with the url's unique hash value
-      if tag == url.hashValue {
-        block?(image: imageView?.image ?? placeholder)
-        return
-      }
-      showActivityIndicator()
-      // else set the new tag as the new url's hash value
-      imageView?.image = nil
-      // begin image download
-      SDWebImageManager.sharedManager().downloadImageWithURL(nsurl, options: [], progress: { (received: NSInteger, actual: NSInteger) -> Void in
-        progress?(Float(received) / Float(actual))
-      }) { [weak self] (image, error, cache, finished, nsurl) -> Void in
-        fitClip(image ?? placeholder, fitMode: fitMode, forState: forState)
+      // show activity
+      SDWebImageManager.sharedManager().downloadImageWithURL(
+        nsurl,
+        options: [
+          .CacheMemoryOnly,
+          .ProgressiveDownload
+        ],
+        progress: { (received: NSInteger, actual: NSInteger) -> Void in
+          progress?(Float(received) / Float(actual))
+        }
+      ) { [weak self] (image, error, cache, finished, nsurl) -> Void in
+        fitClip(image ?? placeholder, fitMode: fitMode)
       }
     } else if let placeholder = placeholder {
-      fitClip(placeholder, fitMode: fitMode, forState: forState)
+      fitClip(placeholder, fitMode: fitMode)
     } else if forced {
       self.imageView?.image = nil
-      tag = 0
     } else {
-      fitClip(imageView?.image, fitMode: fitMode, forState: forState)
+      fitClip(imageView?.image, fitMode: fitMode)
     }
   }
 }
