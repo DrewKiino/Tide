@@ -495,8 +495,7 @@ extension UIImageView {
       SDWebImageManager.sharedManager().downloadImageWithURL(
         nsurl,
         options: [
-          .CacheMemoryOnly,
-          .ProgressiveDownload
+          .CacheMemoryOnly
         ],
         progress: { (received: NSInteger, actual: NSInteger) -> Void in
           progress?(Float(received) / Float(actual))
@@ -661,8 +660,7 @@ extension UIButton {
       SDWebImageManager.sharedManager().downloadImageWithURL(
         nsurl,
         options: [
-          .CacheMemoryOnly,
-          .ProgressiveDownload
+          .CacheMemoryOnly
         ],
         progress: { (received: NSInteger, actual: NSInteger) -> Void in
           progress?(Float(received) / Float(actual))
