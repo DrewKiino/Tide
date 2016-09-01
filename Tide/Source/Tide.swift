@@ -432,6 +432,7 @@ extension UIImageView {
     borderWidth: CGFloat = 0,
     borderColor: UIColor = UIColor.whiteColor(),
     animated: Bool = false,
+    showActivityAnimation: Bool = false,
     forced: Bool = true,
     progress: (Float -> Void)? = nil,
     block: ((image: UIImage?) -> Void)? = nil)
@@ -488,7 +489,7 @@ extension UIImageView {
       }
     }
     
-    showActivityIndicator()
+    if showActivityAnimation { showActivityIndicator() }
     
     if let url = url, let nsurl = NSURL(string: url) {
       // show activity
@@ -596,6 +597,7 @@ extension UIButton {
     borderWidth: CGFloat = 0,
     borderColor: UIColor = UIColor.whiteColor(),
     animated: Bool = false,
+    showActivityAnimation: Bool = false,
     forced: Bool = true,
     forState: UIControlState,
     progress: (Float -> Void)? = nil,
@@ -653,7 +655,7 @@ extension UIButton {
       }
     }
     
-    showActivityIndicator()
+    if showActivityAnimation { showActivityIndicator() }
     
     if let url = url, let nsurl = NSURL(string: url) {
       // show activity
