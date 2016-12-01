@@ -655,10 +655,14 @@ extension UIButton {
       }
     }
     
+    // show activity
     if showActivityAnimation { showActivityIndicator() }
     
+    // skip image processing if the image view does not have it's frame realized yet
+    if min(frame.width, frame.height) <= 0.0 { return }
+    
+    // start imaae processing
     if let url = url, let nsurl = NSURL(string: url) {
-      // show activity
       SDWebImageManager.sharedManager().downloadImageWithURL(
         nsurl,
         options: [
