@@ -12,9 +12,8 @@ Pod::Spec.new do |s|
   s.framework = "UIKit"
   s.source = { :git => 'https://github.com/DrewKiino/Tide.git', :tag => 'master' }
 
-  s.dependency 'AsyncSwift'
-  s.dependency 'SDWebImage'
-  # s.dependency 'Alamofire', '3.2.1'
+  s.dependency 'AsyncSwift', '1.7.4'
+  s.dependency 'SDWebImage', '3.8.0'
 
   s.source_files = "Tide/Source/*.{swift}"
 
