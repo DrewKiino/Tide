@@ -8,32 +8,34 @@
 
 import Foundation
 import UIKit
+import CoreData
 
-public struct Atlantis {
+@objc
+public class Atlantis: NSObject {
   
   public enum LogLevel: Int {
-    case Verbose  = 5
-    case Info     = 4
-    case Warning  = 3
-    case Debug    = 2
-    case Error    = 1
-    case None     = 0
+    case verbose  = 5
+    case info     = 4
+    case warning  = 3
+    case debug    = 2
+    case error    = 1
+    case none     = 0
   }
   
   public struct Configuration {
     
     // Reserved Variables
-    private struct Reserved {
-      private static let ESCAPE = "\u{001b}["
-      private static let RESET_FG = ESCAPE + "fg;" // Clear any foreground color
-      private static let RESET_BG = ESCAPE + "bg;" // Clear any background color
-      private static let RESET = ESCAPE + ";"   // Clear any foreground or background color
+    fileprivate struct Reserved {
+      fileprivate static let ESCAPE = "\u{001b}["
+      fileprivate static let RESET_FG = ESCAPE + "fg;" // Clear any foreground color
+      fileprivate static let RESET_BG = ESCAPE + "bg;" // Clear any background color
+      fileprivate static let RESET = ESCAPE + ";"   // Clear any foreground or background color
     }
     
     // Color Configurations
     public struct logColors {
       
-      private static var _verbose: XCodeColor = XCodeColor.purple
+      fileprivate static var _verbose: XCodeColor = XCodeColor.purple
       public static var verbose: XCodeColor? {
         get { return _verbose }
         set {
@@ -45,7 +47,7 @@ public struct Atlantis {
         }
       }
       
-      private static var _info: XCodeColor = XCodeColor.green
+      fileprivate static var _info: XCodeColor = XCodeColor.green
       public static var info: XCodeColor? {
         get { return _info }
         set {
@@ -57,7 +59,7 @@ public struct Atlantis {
         }
       }
       
-      private static var _warning: XCodeColor = XCodeColor.yellow
+      fileprivate static var _warning: XCodeColor = XCodeColor.yellow
       public static var warning: XCodeColor? {
         get { return _warning }
         set {
@@ -69,7 +71,7 @@ public struct Atlantis {
         }
       }
       
-      private static var _debug: XCodeColor = XCodeColor.blue
+      fileprivate static var _debug: XCodeColor = XCodeColor.blue
       public static var debug: XCodeColor? {
         get { return _debug}
         set {
@@ -81,7 +83,7 @@ public struct Atlantis {
         }
       }
       
-      private static var _error: XCodeColor = XCodeColor.red
+      fileprivate static var _error: XCodeColor = XCodeColor.red
       public static var error: XCodeColor? {
         get { return _error}
         set {
@@ -95,42 +97,52 @@ public struct Atlantis {
     }
     
     // configured log level
-    public static var logLevel: LogLevel = .Verbose
+    public static var logLevel: LogLevel = .verbose
     
     public static var hasWhiteBackground: Bool = false
     
     public static var hasColoredLogs: Bool = false
     
+    public static var hasColoredPrints: Bool = false
+    
     public static var showExtraInfo: Bool = true
+    
+    public static var filteredErrorCodes: [Int] = [-999]
+    
+    public static var highlightsErrors: Bool = false
+    
+    public static var coloredLogLevels: [Atlantis.LogLevel] = [.verbose, .info, .warning, .debug, .error]
+    
+    public static var alignmentThreshold: Int = 5
   }
   
-  private struct Singleton {
-    private static let LogQueue = dispatch_queue_create("Atlantis.LogQueue", nil)
+  fileprivate struct Singleton {
+    fileprivate static let LogQueue = DispatchQueue(label: "Atlantis.LogQueue", attributes: [])
   }
   
   public struct XCodeColor {
     
-    private static let escape = "\u{001b}["
-    private static let resetFg = "\u{001b}[fg;"
-    private static let resetBg = "\u{001b}[bg;"
-    private static let reset = "\u{001b}[;"
+    fileprivate static let escape = "\u{001b}["
+    fileprivate static let resetFg = "\u{001b}[fg;"
+    fileprivate static let resetBg = "\u{001b}[bg;"
+    fileprivate static let reset = "\u{001b}[;"
     
-    private var fg: (Int, Int, Int)? = nil
-    private var bg: (Int, Int, Int)? = nil
+    fileprivate var fg: (Int, Int, Int)? = nil
+    fileprivate var bg: (Int, Int, Int)? = nil
     
-    private mutating func whiteBG() -> XCodeColor {
+    fileprivate mutating func whiteBG() -> XCodeColor {
       if Configuration.hasWhiteBackground {
         bg = (255, 255, 255)
       }
       return self
     }
     
-    private mutating func forceWhiteBG() -> XCodeColor {
+    fileprivate mutating func forceWhiteBG() -> XCodeColor {
       bg = (255, 255, 255)
       return self
     }
     
-    private func format() -> String {
+    fileprivate func format() -> String {
       
       var format = ""
       
@@ -189,8 +201,8 @@ public struct Atlantis {
       
       if let bg = bg,
         let bgColorSpaceCorrected = bg.colorUsingColorSpaceName(NSCalibratedRGBColorSpace) {
-          
-          self.bg = (Int(bgColorSpaceCorrected.redComponent * 255), Int(bgColorSpaceCorrected.greenComponent * 255), Int(bgColorSpaceCorrected.blueComponent * 255))
+        
+        self.bg = (Int(bgColorSpaceCorrected.redComponent * 255), Int(bgColorSpaceCorrected.greenComponent * 255), Int(bgColorSpaceCorrected.blueComponent * 255))
       }
       else {
         self.bg = nil
@@ -251,19 +263,21 @@ public struct Atlantis {
   
   public struct Logger {
     
-    private let logQueue = Singleton.LogQueue
-    private typealias closure = () -> Void
-    private typealias void = Void
-    private static var maxCharCount: Int = 0
+    fileprivate let logQueue = Singleton.LogQueue
+    fileprivate 
+    typealias closure = () -> Void
+    fileprivate typealias void = Void
+    fileprivate static var maxCharCount: Int = 0
+    fileprivate static var smallerCountOccurances: Int = 0
     
     public init() {}
     
-    private struct LogSettings {
+    fileprivate struct LogSettings {
       
-      private var logLevel: LogLevel
-      private var functionName: String
-      private var fileName: String
-      private var lineNumber: Int
+      fileprivate var logLevel: LogLevel
+      fileprivate var functionName: String
+      fileprivate var fileName: String
+      fileprivate var lineNumber: Int
       
       init(logLevel: LogLevel, _ functionName: String, _ fileName: String, _ lineNumber: Int) {
         self.logLevel = logLevel
@@ -272,32 +286,44 @@ public struct Atlantis {
         self.lineNumber = lineNumber
       }
       
-      private func sourceString() -> String {
+      fileprivate func sourceString() -> String {
         if Configuration.showExtraInfo {
           
-          let array = fileName.componentsSeparatedByString("/")
+          let array = fileName.components(separatedBy: "/")
           var name: String = ""
           if let string = array.last {
             name = string
           }
-          let string = "[\(name)/\(functionName)/line:\(lineNumber)]"
-          return string + "\t"
+          
+          // date
+          let date = Date()
+          let formatter = DateFormatter()
+          formatter.dateStyle = .short
+          formatter.timeStyle = .short
+          formatter.timeZone = TimeZone(identifier: "PT")
+          let dateString = formatter.string(from: date)
+            .replacingOccurrences(of: " ", with: "")
+            .replacingOccurrences(of: ",", with: "@")
+          
+          let string = "\(dateString)/\(name)/\(functionName)/line:\(lineNumber)"
+          
+          return string
         }
         return ""
       }
     }
     
-    private static func acceptableLogLevel(logSettings: Atlantis.Logger.LogSettings) -> Bool {
-      return logSettings.logLevel.rawValue <= Configuration.logLevel.rawValue
+    fileprivate static func acceptableLogLevel(_ logSettings: Atlantis.Logger.LogSettings) -> Bool {
+      return logSettings.logLevel.rawValue <= Atlantis.Configuration.logLevel.rawValue
     }
     
     public let tap = Tap()
     
     public struct Tap {
       
-      public func verbose<T>(arg: T, functionName: String = __FUNCTION__, fileName: String = __FILE__, lineNumber: Int = __LINE__) -> T {
-        dispatch_async(Singleton.LogQueue) {
-          let logSettings = LogSettings(logLevel: .Verbose, functionName,fileName, lineNumber)
+      public func verbose<T>(_ arg: T, functionName: String = #function, fileName: String = #file, lineNumber: Int = #line) -> T {
+        Singleton.LogQueue.async {
+          let logSettings = LogSettings(logLevel: .verbose, functionName,fileName, lineNumber)
           if Logger.acceptableLogLevel(logSettings) {
             Logger.log(arg, logSettings)
           }
@@ -305,9 +331,9 @@ public struct Atlantis {
         return arg
       }
       
-      public func info<T>(arg: T, functionName: String = __FUNCTION__, fileName: String = __FILE__, lineNumber: Int = __LINE__) -> T {
-        dispatch_async(Singleton.LogQueue) {
-          let logSettings = LogSettings(logLevel: .Info, functionName,fileName, lineNumber)
+      public func info<T>(_ arg: T, functionName: String = #function, fileName: String = #file, lineNumber: Int = #line) -> T {
+        Singleton.LogQueue.async {
+          let logSettings = LogSettings(logLevel: .info, functionName,fileName, lineNumber)
           if Logger.acceptableLogLevel(logSettings) {
             Logger.log(arg, logSettings)
           }
@@ -315,9 +341,9 @@ public struct Atlantis {
         return arg
       }
       
-      public func warning<T>(arg: T, functionName: String = __FUNCTION__, fileName: String = __FILE__, lineNumber: Int = __LINE__) -> T {
-        dispatch_async(Singleton.LogQueue) {
-          let logSettings = LogSettings(logLevel: .Warning, functionName,fileName, lineNumber)
+      public func warning<T>(_ arg: T, functionName: String = #function, fileName: String = #file, lineNumber: Int = #line) -> T {
+        Singleton.LogQueue.async {
+          let logSettings = LogSettings(logLevel: .warning, functionName,fileName, lineNumber)
           if Logger.acceptableLogLevel(logSettings) {
             Logger.log(arg, logSettings)
           }
@@ -325,9 +351,9 @@ public struct Atlantis {
         return arg
       }
       
-      public func debug<T>(arg: T, functionName: String = __FUNCTION__, fileName: String = __FILE__, lineNumber: Int = __LINE__) -> T {
-        dispatch_async(Singleton.LogQueue) {
-          let logSettings = LogSettings(logLevel: .Debug, functionName,fileName, lineNumber)
+      public func debug<T>(_ arg: T, functionName: String = #function, fileName: String = #file, lineNumber: Int = #line) -> T {
+        Singleton.LogQueue.async {
+          let logSettings = LogSettings(logLevel: .debug, functionName,fileName, lineNumber)
           if Logger.acceptableLogLevel(logSettings) {
             Logger.log(arg, logSettings)
           }
@@ -335,9 +361,9 @@ public struct Atlantis {
         return arg
       }
       
-      public func error<T>(arg: T, functionName: String = __FUNCTION__, fileName: String = __FILE__, lineNumber: Int = __LINE__) -> T {
-        dispatch_async(Singleton.LogQueue) {
-          let logSettings = LogSettings(logLevel: .Error, functionName,fileName, lineNumber)
+      public func error<T>(_ arg: T, functionName: String = #function, fileName: String = #file, lineNumber: Int = #line) -> T {
+        Singleton.LogQueue.async {
+          let logSettings = LogSettings(logLevel: .error, functionName,fileName, lineNumber)
           if Logger.acceptableLogLevel(logSettings) {
             Logger.log(arg, logSettings)
           }
@@ -346,9 +372,9 @@ public struct Atlantis {
       }
     }
     
-    public func verbose<T>(args: T?..., functionName: String = __FUNCTION__, fileName: String = __FILE__, lineNumber: Int = __LINE__) {
-      dispatch_async(logQueue) {
-        let logSettings = LogSettings(logLevel: .Verbose, functionName,fileName, lineNumber)
+    public func verbose<T>(_ args: T?..., functionName: String = #function, fileName: String = #file, lineNumber: Int = #line) {
+      logQueue.async {
+        let logSettings = LogSettings(logLevel: .verbose, functionName,fileName, lineNumber)
         if Logger.acceptableLogLevel(logSettings) {
           for arg in args {
             Logger.log(arg, logSettings)
@@ -357,9 +383,9 @@ public struct Atlantis {
       }
     }
     
-    public func info<T>(args: T?..., functionName: String = __FUNCTION__, fileName: String = __FILE__, lineNumber: Int = __LINE__) {
-      dispatch_async(logQueue) {
-        let logSettings = LogSettings(logLevel: .Info, functionName,fileName, lineNumber)
+    public func info<T>(_ args: T?..., functionName: String = #function, fileName: String = #file, lineNumber: Int = #line) {
+      logQueue.async {
+        let logSettings = LogSettings(logLevel: .info, functionName,fileName, lineNumber)
         if Logger.acceptableLogLevel(logSettings) {
           for arg in args {
             Logger.log(arg, logSettings)
@@ -368,9 +394,9 @@ public struct Atlantis {
       }
     }
     
-    public func warning<T>(args: T?..., functionName: String = __FUNCTION__, fileName: String = __FILE__, lineNumber: Int = __LINE__) {
-      dispatch_async(logQueue) {
-        let logSettings = LogSettings(logLevel: .Warning, functionName,fileName, lineNumber)
+    public func warning<T>(_ args: T?..., functionName: String = #function, fileName: String = #file, lineNumber: Int = #line) {
+      logQueue.async {
+        let logSettings = LogSettings(logLevel: .warning, functionName,fileName, lineNumber)
         if Logger.acceptableLogLevel(logSettings) {
           for arg in args {
             Logger.log(arg, logSettings)
@@ -379,9 +405,9 @@ public struct Atlantis {
       }
     }
     
-    public func debug<T>(args: T?..., functionName: String = __FUNCTION__, fileName: String = __FILE__, lineNumber: Int = __LINE__) {
-      dispatch_async(logQueue) {
-        let logSettings = LogSettings(logLevel: .Debug, functionName,fileName, lineNumber)
+    public func debug<T>(_ args: T?..., functionName: String = #function, fileName: String = #file, lineNumber: Int = #line) {
+      logQueue.async {
+        let logSettings = LogSettings(logLevel: .debug, functionName,fileName, lineNumber)
         if Logger.acceptableLogLevel(logSettings) {
           for arg in args {
             Logger.log(arg, logSettings)
@@ -390,9 +416,9 @@ public struct Atlantis {
       }
     }
     
-    public func error<T>(args: T?..., functionName: String = __FUNCTION__, fileName: String = __FILE__, lineNumber: Int = __LINE__) {
-      dispatch_async(logQueue) {
-        let logSettings = LogSettings(logLevel: .Error, functionName,fileName, lineNumber)
+    public func error<T>(_ args: T?..., functionName: String = #function, fileName: String = #file, lineNumber: Int = #line) {
+      logQueue.async {
+        let logSettings = LogSettings(logLevel: .error, functionName,fileName, lineNumber)
         if Logger.acceptableLogLevel(logSettings) {
           for arg in args {
             Logger.log(arg, logSettings)
@@ -401,117 +427,261 @@ public struct Atlantis {
       }
     }
     
-    private static func getEscapeString() -> String {
-      return Configuration.Reserved.ESCAPE
+    fileprivate static func getEscapeString() -> String {
+      if Configuration.hasColoredLogs { return Configuration.Reserved.ESCAPE }
+      else { return "" }
     }
     
-    private static func getResetString() -> String {
-      return Configuration.Reserved.RESET
+    fileprivate static func getResetString() -> String {
+      if Configuration.hasColoredLogs { return Configuration.Reserved.RESET }
+      else { return "" }
     }
     
-    private static func getRGBString(logLevel: LogLevel) -> String {
+    fileprivate static func getRGBString(_ logLevel: LogLevel) -> String {
       if Configuration.hasColoredLogs {
         switch logLevel {
-        case .Verbose:
-          return Configuration.logColors._verbose.whiteBG().format()
-        case .Info:
-          return Configuration.logColors._info.whiteBG().format()
-        case .Warning:
-          return Configuration.logColors._warning.whiteBG().format()
-        case .Debug:
-          return Configuration.logColors._debug.whiteBG().format()
-        case .Error:
+        case .verbose:
+          if Atlantis.Configuration.coloredLogLevels.contains(.verbose) {
+            return Configuration.logColors._verbose.whiteBG().format()
+          }
+          break
+        case .info:
+          if Atlantis.Configuration.coloredLogLevels.contains(.info) {
+            return Configuration.logColors._info.whiteBG().format()
+          }
+          break
+        case .warning:
+          if Atlantis.Configuration.coloredLogLevels.contains(.warning) {
+            return Configuration.logColors._warning.whiteBG().format()
+          }
+          break
+        case .debug:
+          if Atlantis.Configuration.coloredLogLevels.contains(.debug) {
+            return Configuration.logColors._debug.whiteBG().format()
+          }
+          break
+        case .error:
+          if Atlantis.Configuration.coloredLogLevels.contains(.error) {
+            return Configuration.logColors._error.whiteBG().format()
+          }
+          break
+        case .none:
+          break
+        }
+      } else if Configuration.highlightsErrors {
+        switch logLevel {
+        case .error:
           return Configuration.logColors._error.whiteBG().format()
-        case .None:
+        default:
           break
         }
       }
       return ""
     }
     
-    private static func getLogLevelString(logLevel: LogLevel) -> String {
+    fileprivate static func getLogLevelString(_ logLevel: LogLevel) -> String {
       let level: String = "\(logLevel)"
       let tab1: String = ": "
       let tab2: String = ":    "
       let tab3: String = ":   "
       switch logLevel {
-      case .Verbose:  return level + tab1
-      case .Info:     return level + tab2
-      case .Warning:  return level + tab1
-      case .Debug:    return level + tab3
-      case .Error:    return level + tab3
-      case .None:     return level
+      case .verbose:  return level + tab1
+      case .info:     return level + tab2
+      case .warning:  return level + tab1
+      case .debug:    return level + tab3
+      case .error:    return level + tab3
+      case .none:     return level
       }
     }
     
     
-    private static func toPrettyJSONString(object: AnyObject) -> String? {
+    fileprivate static func toPrettyJSONString(_ object: AnyObject) -> String? {
       do {
-        if NSJSONSerialization.isValidJSONObject(object) {
-          let data = try NSJSONSerialization.dataWithJSONObject(object, options: NSJSONWritingOptions.PrettyPrinted)
-          if let string = NSString(data: data, encoding: NSUTF8StringEncoding) as? String {
+        if JSONSerialization.isValidJSONObject(object) {
+          let data = try JSONSerialization.data(withJSONObject: object, options: .prettyPrinted)
+          if let string = NSString(data: data, encoding: String.Encoding.utf8.rawValue) as? String {
             return "\n" + string
           }
         }
-        throw NSError(domain: "", code: 404, userInfo: nil)
+        throw NSError(domain: "unable to parse json object", code: 400, userInfo: nil)
       }
       catch { return nil }
     }
     
-    private static func log<T>(x: T?, _ logSettings: LogSettings) {
+    fileprivate static func addDash(_ x: Any) -> String {
+      let string = "\(x)"
+      if Configuration.showExtraInfo {
+        return "- " + (string.isEmpty ? "\"\"" : string)
+      }
+      return string
+    }
+    
+    fileprivate static func calculateLegibleWhitespace(_ log: String, startString: String, endString: String, logLevel: LogLevel) -> String {
+      
+      let charCount = startString.debugDescription.characters.count
+      
+      maxCharCount = maxCharCount > charCount ? maxCharCount : charCount
+      
+      smallerCountOccurances = (charCount < maxCharCount) ? (smallerCountOccurances + 1) : 0
+      
+      if smallerCountOccurances > Atlantis.Configuration.alignmentThreshold {
+        
+        maxCharCount = 0 // reset the max char count
+        
+        return log + endString
+        
+      } else {
+        
+        var whitespace: String = ""
+        
+        if maxCharCount - charCount > 0 {
+          for _ in 0 ..< maxCharCount - charCount {
+            whitespace += " "
+          }
+        }
+        
+        let string: String = log + whitespace + endString
+        
+        return string
+      }
+    }
+    
+    fileprivate static func log<T>(_ x: T?, _ logSettings: LogSettings) {
+      
+      // get the type name
+      var type: String!; if let x = x {
+        type = String(describing: Mirror(reflecting: x).subjectType).trimmingCharacters(in: CharacterSet.letters.inverted)
+      }; type = type ?? ""
+      
       let logLevel = logSettings.logLevel
       var jsonString: String? = nil
       switch x {
-      case .Some(is NSArray): jsonString = toPrettyJSONString(x as! NSArray) ?? "\n\(x!)"; break
-      case .Some(is NSDictionary): jsonString = toPrettyJSONString(x as! NSDictionary) ?? "\n\(x!)"; break
-      case .Some(is [String: AnyObject]): jsonString = toPrettyJSONString(x as! [String: AnyObject]) ?? "\n\(x!)"; break
+      // arrays
+      case .some(is NSArray): jsonString = toPrettyJSONString(NSObject.reflect(x as! NSArray) as AnyObject); break
+      // dictionaries
+      case .some(is NSDictionary): jsonString = toPrettyJSONString(x as! NSDictionary) ?? "\n\(x!)"; break
+      case .some(is [String: AnyObject]): jsonString = toPrettyJSONString(x as! [String: AnyObject] as AnyObject) ?? "\n\(x!)"; break
+      // errors
+      case .some(is NSError):
+        let error = x as! NSError
+        
+        // filter out errors based in filtered error code configurations
+        if Atlantis.Configuration.filteredErrorCodes.contains(error.code) { return }
+        
+        let properties: [String: AnyObject] = [
+          "domain": error.domain as AnyObject,
+          "code": error.code as AnyObject,
+          "localizedDescription": error.localizedDescription as AnyObject,
+          "userInfo": error.userInfo as AnyObject
+        ]
+        
+        jsonString = toPrettyJSONString(properties as AnyObject)
+        
+        break
+      // objects
+      case .some(is Any):
+        let dictionary = NSObject.reflect(x!)
+        if !dictionary.isEmpty { jsonString = toPrettyJSONString(dictionary as AnyObject) }
+        break
       default: break
       }
+      
       var unwrap: Any = x ?? "nil"
       unwrap = jsonString ?? addDash(unwrap)
       
       let color = getRGBString(logLevel)
       let reset = getResetString()
       let level = getLogLevelString(logLevel)
-      let source = logSettings.sourceString()
+      let source = "[\(logSettings.sourceString())/type:\(type ?? "")] "
       let string = "\(unwrap)"
-      let coloredString: String = color + string + reset
+      let coloredString: String = Atlantis.Configuration.hasColoredPrints ? (color + string + reset) : string
+      
       let log: String = "\(color)\(level)\(reset)\(source)"
       
-      let prettyLog: String = calculateLegibleWhitespace(log, endString: coloredString, logLevel: logLevel)
+      let prettyLog: String = calculateLegibleWhitespace(log, startString: "\(level)\(source)", endString: coloredString, logLevel: logLevel)
       
-      dispatch_async(dispatch_get_main_queue()) { print(prettyLog) }
-    }
-    
-    private static func addDash(x: Any) -> String {
-      let string = "\(x)"
-      if Configuration.showExtraInfo {
-        return "- " + string
-      }
-      return string
-    }
-    
-    private static func calculateLegibleWhitespace(startString: String, endString: String, logLevel: LogLevel) -> String {
-      
-      let charCount = startString.characters.count
-      maxCharCount = maxCharCount > charCount ? maxCharCount : charCount
-      
-      var whitespace: String = ""
-      
-      var i = 0
-      switch logLevel {
-      case .Info: i = 3; break
-      case .Error: i = 4; break
-      default: break
-      }
-      
-      for var j = i; j < maxCharCount - charCount; j++ {
-        whitespace += " "
-      }
-      
-      
-      let string: String = startString + whitespace + endString
-      return string
+      DispatchQueue.main.async { print(prettyLog) }
     }
   }
 }
+
+extension NSObject {
+  
+  fileprivate class func reflect(_ objects: NSArray) -> [AnyObject] {
+    return objects.map { value -> AnyObject in
+      
+      // strings
+      if let value = value as? String { return value as AnyObject }
+      else  if let value = value as? [String] { return value as AnyObject }
+        
+        // booleans
+      else if value is Bool { return value as AnyObject }
+        
+        // numbers
+      else if let value = value as? Int { return value as AnyObject }
+      else if let value = value as? [Int] { return value as AnyObject }
+      else if let value = value as? Float { return value as AnyObject }
+      else if let value = value as? [Float] { return value as AnyObject }
+      else if let value = value as? Double { return value as AnyObject }
+      else if let value = value as? [Double] { return value as AnyObject }
+        
+        // dictionaries
+      else if let value = value as? NSDictionary { return value }
+      else if let value = value as? [String: AnyObject] { return value as AnyObject }
+        
+        // objects
+      else { return NSObject.reflect(value as! NSArray) as AnyObject }
+    }
+  }
+  
+  fileprivate class func reflect<T>(_ object: T) -> [String: AnyObject] {
+    var dictionary: [String: AnyObject] = [:]
+    
+    Mirror(reflecting: object).children.forEach { label, value in
+      
+      // strings
+      if let key = label, let value = value as? String { dictionary.updateValue(value as AnyObject, forKey: key) }
+      else  if let key = label, let value = value as? [String] { dictionary.updateValue(value as AnyObject, forKey: key) }
+        
+        // numbers
+      else if let key = label, let value = value as? Int { dictionary.updateValue(value as AnyObject, forKey: key) }
+      else if let key = label, let value = value as? [Int] { dictionary.updateValue(value as AnyObject, forKey: key) }
+      else if let key = label, let value = value as? Float { dictionary.updateValue(value as AnyObject, forKey: key) }
+      else if let key = label, let value = value as? [Float] { dictionary.updateValue(value as AnyObject, forKey: key) }
+      else if let key = label, let value = value as? Double { dictionary.updateValue(value as AnyObject, forKey: key) }
+      else if let key = label, let value = value as? [Double] { dictionary.updateValue(value as AnyObject, forKey: key) }
+        
+        // booleans
+      else if let key = label, let value = value as? Bool { dictionary.updateValue(value as AnyObject, forKey: key) }
+      else if let key = label, let value = value as? [Bool] { dictionary.updateValue(value as AnyObject, forKey: key) }
+        
+        // dictionaries
+      else if let key = label, let value = value as? [String: AnyObject] { dictionary.updateValue(value as AnyObject, forKey: key) }
+        
+        // objects
+      else if let key = label, let value = value as? T {
+        let object = NSObject.reflect(value)
+        if object.isEmpty { dictionary.updateValue("null" as AnyObject, forKey: key) }
+        else { dictionary.updateValue(object as AnyObject, forKey: key) }
+      }
+      else if let key = label, let value = value as? [T] {
+        let objects = value.map { NSObject.reflect($0) }
+        if objects.isEmpty { dictionary.updateValue("null" as AnyObject, forKey: key) }
+        else { dictionary.updateValue(objects as AnyObject, forKey: key) }
+      }
+      else if let key = label, let value = value as? NSArray {
+        let objects = value.map { NSObject.reflect(object: $0) } as [AnyObject]
+        if objects.isEmpty { dictionary.updateValue("null" as AnyObject, forKey: key) }
+        else { dictionary.updateValue(objects as AnyObject, forKey: key) }
+      }
+      else if let key = label {
+        let object = NSObject.reflect(object: value)
+        if object.isEmpty { dictionary.updateValue("null" as AnyObject, forKey: key) }
+        else { dictionary.updateValue(object as AnyObject, forKey: key) }
+      }
+    }
+    
+    return dictionary
+  }
+}
+

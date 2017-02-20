@@ -1,17 +1,14 @@
 PODS:
-  - AsyncSwift (1.7.2)
-  - SDWebImage (3.8.0):
-    - SDWebImage/Core (= 3.8.0)
-  - SDWebImage/Core (3.8.0)
+  - SDWebImage (4.0.0):
+    - SDWebImage/Core (= 4.0.0)
+  - SDWebImage/Core (4.0.0)
 
 DEPENDENCIES:
-  - AsyncSwift
   - SDWebImage
 
 SPEC CHECKSUMS:
-  AsyncSwift: 46a78bceb11f0e5bb52747f740d9692ec78d2d7c
-  SDWebImage: 7d9fe229266696de91eadf840c77ca15efd4bbd2
+  SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
 
-PODFILE CHECKSUM: 2b9dbcf348f69a2850f9c38acb5fc5c0f13ccab8
+PODFILE CHECKSUM: 7e3ca7088451facfcc965f8e90ad8fb160a53cf4
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.2.0

@@ -231,6 +231,7 @@
 				TargetAttributes = {
 					EEC98E961D033FC100628DE2 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 2NC533SE3E;
 					};
 					EEC98EAA1D033FC200628DE2 = {
 						CreatedOnToolsVersion = 7.2;
@@ -302,7 +303,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		4C3699726034B0D140CD8CD3 /* [CP] Copy Pods Resources */ = {
@@ -487,6 +488,7 @@
 			baseConfigurationReference = CAF89F4995EAE56242591FF6 /* Pods-TideDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 2NC533SE3E;
 				INFOPLIST_FILE = TideDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = TotemV.TideDemo;
@@ -499,6 +501,7 @@
 			baseConfigurationReference = 625B17CFC910C40EF7456199 /* Pods-TideDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 2NC533SE3E;
 				INFOPLIST_FILE = TideDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = TotemV.TideDemo;

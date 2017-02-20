@@ -1,8 +1,7 @@
 
-platform :ios, '8.0'
+platform :ios, '9.0'
 use_frameworks!
  
 target 'Tide' do
-	pod 'AsyncSwift'
-  pod 'SDWebImage'
+  pod 'SDWebImage', '4.0.0'
 end

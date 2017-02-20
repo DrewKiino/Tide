@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '514AD73B93B8B09AB38937AC19A3F9A2'
+               BlueprintIdentifier = 'BED6D0182501A77E8FFB3FBCB3B79C0F'
                BlueprintName = 'Atlantis'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Atlantis.framework'>

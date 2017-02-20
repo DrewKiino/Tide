@@ -1,31 +1,15 @@
 PODS:
-  - AsyncSwift (1.7.2)
-  - Atlantis (0.1.1)
-  - SDWebImage (3.7.6):
-    - SDWebImage/Core (= 3.7.6)
-  - SDWebImage/Core (3.7.6)
-  - Storm (0.0.7):
-    - AsyncSwift
-    - Atlantis
-    - SwiftDate
-  - SwiftDate (3.0.8)
-  - SwiftyTimer (1.4.0)
+  - Atlantis (3.0.1)
+  - SwiftyTimer (2.0.0)
 
 DEPENDENCIES:
-  - AsyncSwift
   - Atlantis
-  - SDWebImage
-  - Storm
   - SwiftyTimer
 
 SPEC CHECKSUMS:
-  AsyncSwift: 46a78bceb11f0e5bb52747f740d9692ec78d2d7c
-  Atlantis: 33d4c4c436b6af3b640c2c6b2317c72d1fb41f00
-  SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
-  Storm: 2db726b2fbb967bc6f4a4bca76c7dfcf38cb911f
-  SwiftDate: 971f8b9394f664f2226b9c3ab64e801a7291c612
-  SwiftyTimer: db4458cfaf67fc71e16ad6e4637c60b86f76a649
+  Atlantis: 7426c23cc45679341c7bebced7cdfb943971cc5c
+  SwiftyTimer: 2efd74b060d69ad4f1496baf5bbedbe132125fcf
 
-PODFILE CHECKSUM: 4eed9ba1019ab67480beea27ca785fb5656552b7
+PODFILE CHECKSUM: 19e37ddf9a0d7cae732e3ef79cd3966df09f6789
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.2.0
